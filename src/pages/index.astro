@@ -6,9 +6,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Card from '../components/Card.astro';
 import logo from '../logo.svg';
 import Layout from '../layouts/Layout.astro';
-import CMS from 'decap-cms-app'
+//import CMS from 'decap-cms-app'
 // Initialize the CMS object
-CMS.init()
+//CMS.init()
 // Now the registry is available via the CMS object.
 //CMS.registerPreviewTemplate('my-template', MyTemplate)
 ---
@@ -28,7 +28,7 @@ CMS.init()
 					<h1 class="text-7xl sm:text-8xl md:text-9xl mt-20">Vic<span class=" text font-bold bg-clip-text text-transparent bg-gradient-to-r  from-amber-500 via-pink-500 to-red-500">Records</span></h1>
 					<p class="italic text-indigo-950 font-serif text-xl flex flex-row items-center mb-12">
 						At
-						<img src="/public/uoft.jpg" class="w-[10rem]" />
+						<img src="/public/uoft.jpg" class="ml-3 w-[10rem]" />
 					</p>
 					<div class="flex flex-row items-center max-w-[50rem] flex-wrap sm:flex-nowrap justify-center mt-6 sm:mt-0">
 						<img src="/public/logo.png" class="w-[12rem]">
