@@ -2,7 +2,7 @@
 title: Shades of Vic Records
 description: Our latest playlist featuring selections from all of our members
 author: Artin Khiabani
-pubDate: 2023-11-22T05:45:25.450Z
+pubDate: 2023-10-03T04:45:25.450Z
 heroImage: /assets/ab67706c0000da84254797aa2716aa5b3d4cad56.jpg
 ---
 Dear Reader,
