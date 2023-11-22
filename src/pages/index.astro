@@ -6,6 +6,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Card from '../components/Card.astro';
 import logo from '../logo.svg';
 import Layout from '../layouts/Layout.astro';
+import CMS from 'decap-cms-app'
+// Initialize the CMS object
+CMS.init()
+// Now the registry is available via the CMS object.
+//CMS.registerPreviewTemplate('my-template', MyTemplate)
 ---
 
 <!doctype html>
