@@ -1,0 +1,104 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Card from '../components/Card.astro';
+import logo from '../logo.svg';
+import Layout from '../layouts/Layout.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<Layout title={SITE_TITLE} >
+		<main>
+			<div class="flex flex-col items-center">
+				<div class="h-[calc(100dvh)] flex flex-col items-center">
+					<h1 class="text-7xl sm:text-8xl md:text-9xl mt-20">Vic<span class=" text font-bold bg-clip-text text-transparent bg-gradient-to-r  from-amber-500 via-pink-500 to-red-500">Records</span></h1>
+					<p class="italic text-indigo-950 font-serif text-xl flex flex-row items-center mb-12">
+						At
+						<img src="/public/uoft.jpg" class="w-[10rem]" />
+					</p>
+					<div class="flex flex-row items-center max-w-[50rem] flex-wrap sm:flex-nowrap justify-center mt-6 sm:mt-0">
+						<img src="/public/logo.png" class="w-[12rem]">
+						<div class="flex flex-col ml-3 min-w-[5rem]">
+							<p class="font-bold text-lg">
+								Vic Records is the home of all things music at Victoria College.
+							</p>
+							<p class="text-lg">
+								Whether a musician or a fan of music, Vic Records offers everyone an opportunity to experience the future of music. Contact us to get involved in future events. We would love to have you!
+							</p>
+						</div>
+					</div>
+					<a class="m-auto mt-0 mb-0"><button class="border p-2 pl-4 pr-4 rounded-lg border-black border-opacity-25 hover:p-4 transition-all hover:shadow-xl hover:bg-gray-300">Explore</button></a>
+				</div>
+				<ul role="list" class="pb-5 flex flex-row flex-wrap justify-center lg:w-[60rem]">
+					<Card
+						href="https://linktr.ee/vicrecords/"
+						title="Links"
+						body="Explore our"
+					>
+						<svg class="h-full w-10"
+						fill="currentColor"
+						viewBox="0 0 16 16"
+						>
+							<path d="M4.715 6.542L3.343 7.914a3 3 0 104.243 4.243l1.828-1.829A3 3 0 008.586 5.5L8 6.086a1.002 1.002 0 00-.154.199 2 2 0 01.861 3.337L6.88 11.45a2 2 0 11-2.83-2.83l.793-.792a4.018 4.018 0 01-.128-1.287z" />
+							<path d="M6.586 4.672A3 3 0 007.414 9.5l.775-.776a2 2 0 01-.896-3.346L9.12 3.55a2 2 0 112.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 10-4.243-4.243L6.586 4.672z" />
+						</svg>
+					</Card>
+					<Card
+						href="https://astro.build/integrations/"
+						title="Events"
+						body="Supercharge your project with new frameworks and libraries."
+					>
+						<svg class="h-full w-9 mr-1"
+						fill="none"
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width={2}
+						viewBox="0 0 24 24"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" />
+							<path d="M6 5 H18 A2 2 0 0 1 20 7 V19 A2 2 0 0 1 18 21 H6 A2 2 0 0 1 4 19 V7 A2 2 0 0 1 6 5 z" />
+							<path d="M16 3v4M8 3v4M4 11h16M8 15h2v2H8z" />
+						</svg>
+					</Card>
+					<Card
+						href="https://astro.build/themes/"
+						title="Playlists"
+						body="Explore a galaxy of community-built starter themes."
+					>
+						<svg class="h-full w-10 mr-1"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						>
+							<path d="M15 6H3v2h12V6m0 4H3v2h12v-2M3 16h8v-2H3v2M17 6v8.18c-.31-.11-.65-.18-1-.18a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V8h3V6h-5z" />
+						</svg>
+					</Card>
+					<Card
+						href="https://astro.build/chat/"
+						title="Blog"
+						body="Come say hi to our amazing Discord community. ❤️"
+					>
+						<svg class="h-full w-9 mr-1"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							height="1em"
+							width="1em"
+						>
+							<path d="M12 2A10 10 0 002 12a9.89 9.89 0 002.26 6.33l-2 2a1 1 0 00-.21 1.09A1 1 0 003 22h9a10 10 0 000-20zm0 18H5.41l.93-.93a1 1 0 000-1.41A8 8 0 1112 20zm5-9H7a1 1 0 000 2h10a1 1 0 000-2zm-2 4H9a1 1 0 000 2h6a1 1 0 000-2zM9 9h6a1 1 0 000-2H9a1 1 0 000 2z" />
+						</svg>
+					</Card>
+				</ul>
+			</div>
+		</main>
+		</Layout>
+		<Footer />
+	</body>
+</html>
