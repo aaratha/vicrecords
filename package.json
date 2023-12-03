@@ -1,6 +1,7 @@
 {
   "name": "vicrecords",
   "type": "module",
+  "homepage": "./",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
