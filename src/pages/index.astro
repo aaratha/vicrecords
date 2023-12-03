@@ -13,27 +13,31 @@ import Layout from '../layouts/Layout.astro';
 //CMS.registerPreviewTemplate('my-template', MyTemplate)
 ---
 
+
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 	</head>
-	<body>
+	<body class=" bg-gradient-to-br from-black to-brown bg-cover">
 		<Header title={SITE_TITLE} />
 		<Layout title={SITE_TITLE} >
-		<main>
-			<div class="flex flex-col items-center">
+		<main >
+			<div class="flex flex-col items-center ">
 				<div class="h-[calc(100dvh)] flex flex-col items-center">
-					<h1 class="text-7xl sm:text-8xl md:text-9xl mt-20">Vic<span class=" text font-bold bg-clip-text text-transparent bg-gradient-to-r  from-amber-500 via-pink-500 to-red-500">Records</span></h1>
-					<p class="italic text-indigo-950 font-serif text-xl flex flex-row items-center mb-12">
+					<img src="public/assets/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
+					<div class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover black-grad" />
+					<h1 class="pt-20 text-7xl z-10 sm:text-8xl md:text-8xl">Vic<span class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-pink-500 to-red-500">Records</span></h1>
+					{/*<p class="italic z-10 text-indigo-950 font-serif text-xl flex flex-row items-center mb-12">
 						At
 						<img src="/uoft.jpg" class="ml-3 w-[10rem]" />
-					</p>
-					<div class="flex flex-row items-center max-w-[50rem] flex-wrap sm:flex-nowrap justify-center mt-6 sm:mt-0">
+					</p>*/}
+					<div class="z-10 flex flex-row items-center max-w-[50rem] flex-wrap sm:flex-nowrap justify-center pt-32 sm:mt-0">
 						<img src="/logo.png" class="w-[12rem]">
 						<div class="flex flex-col ml-3 min-w-[5rem]">
-							<p class="font-bold text-lg">
+							<p class="font-bold text-2xl">
 								Vic Records is the home of all things music at Victoria College.
 							</p>
 							<p class="text-lg">
@@ -125,3 +129,8 @@ import Layout from '../layouts/Layout.astro';
 		</script>
 	</body>
 </html>
+<style>
+	.black-grad {
+		background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+	}
+</style>

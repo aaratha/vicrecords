@@ -8,7 +8,7 @@ interface Props {
 const { href, title, body} = Astro.props;
 ---
 
-<li class="link-card border mb-4 border-black border-opacity-25 hover:border-white hover:shadow-xl">
+<li class="link-card border mb-4 border-white border-opacity-25 hover:border-white hover:shadow-xl">
 	<a href={href}>
 		<h2 class="flex flex-row items-center justify-center">
 			<slot />
@@ -27,7 +27,7 @@ const { href, title, body} = Astro.props;
 		padding: 1px;
 		margin-left: 8px;
 		margin-right: 8px;
-		background-color: #ffffff;
+		background-color: #00000000;
 		background-image: none;
 		background-size: 400%;
 		border-radius: 9px;
@@ -42,8 +42,8 @@ const { href, title, body} = Astro.props;
 		line-height: 1.4;
 		padding: calc(1.5rem - 1px);
 		border-radius: 8px;
-		color: rgb(65, 65, 65);
-		background-color: #ffffff;
+		color: rgba(255, 255, 255, 0.678);
+		background-color: #00000000;
 		opacity: 0.8;
 	}
 	h2 {
@@ -60,7 +60,7 @@ const { href, title, body} = Astro.props;
 		background-position: 0;
 		background-image: var(--accent-gradient);
 		margin: 0.5rem;
-		padding: 0.2rem;
+		padding: 0rem;
 	}
 	.link-card:is(:hover, :focus-within) h2 {
 		color: rgb(var(--accent-dark));

@@ -28,17 +28,17 @@ const { title } = Astro.props;
 		--accent-dark: rgb(49, 10, 101);
 
 		--accent: rgb(255, 123, 95);
-		--accent-light: rgb(255, 231, 226 );
+		--accent-light: rgb(255, 192, 181);
 		--accent-dark: rgb(255, 60, 18);
 		*/
 		--accent: 255, 123, 95;
-		--accent-light: 255, 231, 226;
+		--accent-light: 255, 192, 181;
 		--accent-dark: 255, 60, 18;
 		--accent-gradient: linear-gradient(
 			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
+			rgb(var(--accent), 10%),
+			rgb(var(--accent-light), 30%) 30%,
+			rgba(80, 0, 0, 0.527) 60%
 		);
 	}
 	html {
