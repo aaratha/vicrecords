@@ -27,17 +27,18 @@ import Layout from '../layouts/Layout.astro';
 		<main >
 			<div class="flex flex-col items-center ">
 				<div class="h-[calc(100dvh)] flex flex-col items-center">
-					<img src="public/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
+					<img src="/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
 					<div class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover black-grad" />
-					<h1 class="pt-20 text-7xl z-10 sm:text-8xl md:text-8xl">Vic<span class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-pink-500 to-red-500">Records</span></h1>
+					<div class="noise w-full h-full overflow-hidden absolute z-20 top-0 bg-cover" />
+					<h1 class="pt-[12vh] md:pt-[15vh] text-7xl z-30 sm:text-8xl md:text-8xl">Vic<span class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-pink-500 to-red-500">Records</span></h1>
 					{/*<p class="italic z-10 text-indigo-950 font-serif text-xl flex flex-row items-center mb-12">
 						At
 						<img src="/uoft.jpg" class="ml-3 w-[10rem]" />
 					</p>*/}
-					<div class="z-10 flex flex-row items-center max-w-[50rem] flex-wrap sm:flex-nowrap justify-center pt-32 sm:mt-0">
+					<div class="z-30 flex flex-row items-center max-w-[50rem] flex-wrap sm:flex-nowrap justify-center mt-10 md:mt-20 sm:mt-16 p-5 bg-gradient-to-br from-[rgba(0,0,0,0.5)] to-[rgba(53,10,10,0.5)] backdrop-blur-md rounded-xl">
 						<img src="/logo.png" class="w-[12rem]">
 						<div class="flex flex-col ml-3 min-w-[5rem]">
-							<p class="font-bold text-2xl">
+							<p class="font-bold text-2xl pt-4 pb-0 mb-[7px]">
 								Vic Records is the home of all things music at Victoria College.
 							</p>
 							<p class="text-lg">
