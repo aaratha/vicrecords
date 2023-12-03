@@ -15,9 +15,8 @@ const { title, description, pubDate, author, heroImage } = Astro.props;
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
-				width: calc(100% - 2em);
+				width: calc(100%);
 				max-width: 100%;
-				margin: 0;
 			}
 			.hero-image {
 				width: 100%;
@@ -51,10 +50,10 @@ const { title, description, pubDate, author, heroImage } = Astro.props;
 		</style>
 	</head>
 
-	<body>
+	<body class="w-full h-full">
 		<Header />
-		<main>
-			<article>
+		<main class="bg-gradient-to-br from-black to-brown bg-cover">
+			<article class="mt-10">
 				<div class="hero-image">
 					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
 				</div>
