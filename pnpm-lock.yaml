@@ -20,6 +20,18 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.0.2
     version: 5.0.2(astro@3.5.7)(tailwindcss@3.3.5)
+  '@fontsource/blackout-two-am':
+    specifier: ^5.0.7
+    version: 5.0.7
+  '@fontsource/frijole':
+    specifier: ^5.0.8
+    version: 5.0.8
+  '@fontsource/permanent-marker':
+    specifier: ^5.0.8
+    version: 5.0.8
+  '@fontsource/rubik-burned':
+    specifier: ^5.0.8
+    version: 5.0.8
   astro:
     specifier: ^3.5.7
     version: 3.5.7(@types/node@17.0.45)(typescript@5.3.2)
@@ -1352,6 +1364,22 @@ packages:
       p-limit: 3.1.0
       readable-stream: 4.4.2
     dev: true
+
+  /@fontsource/blackout-two-am@5.0.7:
+    resolution: {integrity: sha512-ivVO9Yw4Sy1ptbHjLE69cwR+P0X7INzPho2kfZ9xszmYHDNO1JOsUpmfGHNnSd7O4BPnMAYPQBJ6wuzSa9e4IQ==}
+    dev: false
+
+  /@fontsource/frijole@5.0.8:
+    resolution: {integrity: sha512-SA+Fvu9R6XTjaGYevk8qSmj3uSPYltKxmFx4j3IKkVRY4DplstMfmREACsPLnvePTsk6VzjngzBUWIxSYwJ01Q==}
+    dev: false
+
+  /@fontsource/permanent-marker@5.0.8:
+    resolution: {integrity: sha512-1cHvFLU+szU2R/SfRy5g8o5Jq/gdTtK7HjQkdjezcwiQdSQDQegslG9jI8wr8AJqDK1D+F6l2KDfFBlshUxYmw==}
+    dev: false
+
+  /@fontsource/rubik-burned@5.0.8:
+    resolution: {integrity: sha512-qRH96yRldMSPTAypBogT37LuovMc7pdd0RX4FYRd0khXGzTMMRTSKxyrHCRlEdjN2OW41BcsEHfpaMqO40nx6A==}
+    dev: false
 
   /@grpc/grpc-js@1.9.11:
     resolution: {integrity: sha512-QDhMfbTROOXUhLHMroow8f3EHiCKUOh6UwxMP5S3EuXMnWMNSVIhatGZRwkpg9OUTYdZPsDUVH3cOAkWhGFUJw==}

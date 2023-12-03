@@ -7,6 +7,8 @@ License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
 @tailwind components;
 @tailwind utilities;
 
+@import '@fontsource/permanent-marker';
+
 :root {
 	--accent: #ff3015;
 	--accent-dark: rgb(129, 2, 2);
@@ -19,32 +21,30 @@ License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
 	--box-shadow: 0 2px 6px rgba(0,0,0), 0 8px 24px rgba(255, 130, 130, 0.144),
 		0 16px 32px rgba(245, 0, 0, 0.151);
 }
+
 @font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-regular.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
-	font-weight: 700;
+	font-family: 'Graffonti';
+	src: url('public/fonts/graffonti.3d.drop.[fontvir.us].ttf') format('truetype');
+	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
 
 body {
-	font-family: 'Atkinson', sans-serif;
+	font-family: serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--white));
+	color: rgb(255, 248, 248);
 	font-size: 20px;
 	line-height: 1.7;
+}
+
+.graffonti {
+	font-family: 'Graffonti';
 }
 
 
@@ -162,7 +162,7 @@ hr {
 
 .noise {
 	background-image: url("/assets/textures/11.png");
-	filter: invert(1) brightness(1);
+	filter: invert(1) brightness(1) hue-rotate(2deg);
 	background-size: 100%;
 	opacity: 0.8;
 	background-size: cover;

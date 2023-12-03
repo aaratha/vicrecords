@@ -6,6 +6,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Card from '../components/Card.astro';
 import logo from '../logo.svg';
 import Layout from '../layouts/Layout.astro';
+import '@fontsource/permanent-marker';
+import '@fontsource/blackout-two-am';
+import '@fontsource/frijole';
+import '@fontsource/rubik-burned';
+
 //import CMS from 'decap-cms-app'
 // Initialize the CMS object
 //CMS.init()
@@ -30,7 +35,13 @@ import Layout from '../layouts/Layout.astro';
 					<img src="/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
 					<div class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover black-grad" />
 					<div class="noise w-full h-full overflow-hidden absolute z-20 top-0 bg-cover" />
-					<h1 class="pt-[12vh] md:pt-[15vh] text-7xl z-30 sm:text-8xl md:text-8xl">Vic<span class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-pink-500 to-red-500">Records</span></h1>
+					<h1 class=" font-serif pt-[12vh] md:pt-[15vh] text-7xl z-30 sm:text-8xl md:text-8xl">Vic<span class="text-8xl ml-2 special-font bg-clip-text text-transparent bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span></h1>
+					{/*<svg xmlns="http://www.w3.org/2000/svg" width="1288" height="136" viewBox="0 0 1288 232" fill="none" class="absolute z-20 mt-[6rem]" opacity="0.5">
+						<path d="M19 210C57.5 146 95 90 153 1H1286.5L1142 210H19Z" fill="black"/>
+						<path d="M1138 216.5H14.5L2 231.5H1123.5L1138 216.5Z" fill="black"/>
+						<path d="M19 210C57.5 146 95 90 153 1H1286.5L1142 210H19Z" stroke="black"/>
+						<path d="M1138 216.5H14.5L2 231.5H1123.5L1138 216.5Z" stroke="black"/>
+					</svg>*/}
 					{/*<p class="italic z-10 text-indigo-950 font-serif text-xl flex flex-row items-center mb-12">
 						At
 						<img src="/uoft.jpg" class="ml-3 w-[10rem]" />
@@ -131,7 +142,10 @@ import Layout from '../layouts/Layout.astro';
 	</body>
 </html>
 <style>
+	.special-font {
+		font-family: 'Rubik Burned', sans-serif;
+	}
 	.black-grad {
-		background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+		background: linear-gradient(to bottom, rgb(17, 17, 17), rgba(0,0,0,0.4));
 	}
 </style>
