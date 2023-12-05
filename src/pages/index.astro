@@ -10,6 +10,9 @@ import '@fontsource/permanent-marker';
 import '@fontsource/blackout-two-am';
 import '@fontsource/frijole';
 import '@fontsource/rubik-burned';
+import '@fontsource/monoton';
+import '@fontsource/beth-ellen';
+import '@fontsource/rock-salt';
 
 //import CMS from 'decap-cms-app'
 // Initialize the CMS object
@@ -34,8 +37,22 @@ import '@fontsource/rubik-burned';
 				<div class="h-[calc(100dvh)] flex flex-col items-center">
 					<img src="/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
 					<div class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover black-grad" />
-					<div class="noise w-full h-full overflow-hidden absolute z-20 top-0 bg-cover" />
-					<h1 class=" font-serif pt-[12vh] md:pt-[15vh] text-7xl z-30 sm:text-8xl md:text-8xl">Vic<span class="text-8xl ml-2 special-font bg-clip-text text-transparent bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span></h1>
+					<div class=" w-full h-full overflow-hidden absolute z-20 top-0 bg-cover" />
+					<div class="gradient-blur left-0 top-0 z-30 w-[50vw] h-[calc(100dvh)] absolute flex flex-col pl-10 flex-wrap sm:flex-nowrap rounded-xl">
+						<h1 class=" mt-36 font-serif text-7xl z-30 sm:text-8xl md:text-8xl">Vic</h1>
+						<span class=" ml-24 text-8xl z-30 font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
+						<div class="flex flex-row mt-10">
+							{/*<img src="/logo.png" class="w-[16rem] z-50">*/}
+							<div class="flex flex-col flex-wrap ml-3 min-w-[5rem] max-w-[25rem] z-50">
+								<p class="font-bold text-2xl pt-4 pb-0 mb-[7px]">
+									Vic Records is the home of all things music at Victoria College.
+								</p>
+								<p class="text-lg">
+									Whether a musician or a fan of music, Vic Records offers everyone an opportunity to experience the future of music. Contact us to get involved in future events. We would love to have you!
+								</p>
+							</div>
+						</div>
+					</div>
 					{/*<svg xmlns="http://www.w3.org/2000/svg" width="1288" height="136" viewBox="0 0 1288 232" fill="none" class="absolute z-20 mt-[6rem]" opacity="0.5">
 						<path d="M19 210C57.5 146 95 90 153 1H1286.5L1142 210H19Z" fill="black"/>
 						<path d="M1138 216.5H14.5L2 231.5H1123.5L1138 216.5Z" fill="black"/>
@@ -46,20 +63,10 @@ import '@fontsource/rubik-burned';
 						At
 						<img src="/uoft.jpg" class="ml-3 w-[10rem]" />
 					</p>*/}
-					<div class="z-30 flex flex-row items-center max-w-[50rem] flex-wrap sm:flex-nowrap justify-center mt-10 md:mt-20 sm:mt-16 p-5 bg-gradient-to-br from-[rgba(0,0,0,0.5)] to-[rgba(53,10,10,0.5)] backdrop-blur-md rounded-xl">
-						<img src="/logo.png" class="w-[12rem]">
-						<div class="flex flex-col ml-3 min-w-[5rem]">
-							<p class="font-bold text-2xl pt-4 pb-0 mb-[7px]">
-								Vic Records is the home of all things music at Victoria College.
-							</p>
-							<p class="text-lg">
-								Whether a musician or a fan of music, Vic Records offers everyone an opportunity to experience the future of music. Contact us to get involved in future events. We would love to have you!
-							</p>
-						</div>
-					</div>
+					
 					{/*<a class="m-auto mt-0 mb-0"><button class="border p-2 pl-4 pr-4 rounded-lg border-black border-opacity-25 hover:p-4 transition-all hover:shadow-xl hover:bg-gray-300">Explore</button></a>*/}
 				</div>
-				<ul role="list" class="pb-5 flex flex-row flex-wrap justify-center lg:w-[60rem]">
+				<ul role="list" class="pb-5 flex flex-row flex-wrap justify-center w-[100vw]">
 					<Card
 						href="https://linktr.ee/vicrecords/"
 						title="Links"
@@ -142,10 +149,25 @@ import '@fontsource/rubik-burned';
 	</body>
 </html>
 <style>
+	.vic-font {
+		font-family: 'Rock Salt', sans-serif;
+	}
 	.special-font {
-		font-family: 'Rubik Burned', sans-serif;
+		font-family: 'Permanent Marker', sans-serif;
 	}
 	.black-grad {
-		background: linear-gradient(to bottom, rgb(17, 17, 17), rgba(0,0,0,0.4));
+		background: linear-gradient(to bottom, rgba(17, 17, 17, 0.747), rgba(0,0,0,0.4));
 	}
+
+	.gradient-blur {
+		&:after {
+			content: '';
+			position: absolute;
+			inset: 0%;
+			background-image: linear-gradient(0deg, rgba(116, 116, 116, 0.5), rgba(0, 0, 0, 0));
+			backdrop-filter: blur(20px);
+			-webkit-mask: linear-gradient(-90deg, transparent, black 50%);
+		}
+	}
+
 </style>

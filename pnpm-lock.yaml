@@ -20,15 +20,24 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.0.2
     version: 5.0.2(astro@3.5.7)(tailwindcss@3.3.5)
+  '@fontsource/beth-ellen':
+    specifier: ^5.0.8
+    version: 5.0.8
   '@fontsource/blackout-two-am':
     specifier: ^5.0.7
     version: 5.0.7
   '@fontsource/frijole':
     specifier: ^5.0.8
     version: 5.0.8
+  '@fontsource/monoton':
+    specifier: ^5.0.17
+    version: 5.0.17
   '@fontsource/permanent-marker':
     specifier: ^5.0.8
     version: 5.0.8
+  '@fontsource/rock-salt':
+    specifier: ^5.0.17
+    version: 5.0.17
   '@fontsource/rubik-burned':
     specifier: ^5.0.8
     version: 5.0.8
@@ -1365,6 +1374,10 @@ packages:
       readable-stream: 4.4.2
     dev: true
 
+  /@fontsource/beth-ellen@5.0.8:
+    resolution: {integrity: sha512-M1amFITeqbudnZ2Jw42aAadvsIEYy4itkKycM/OzXPK0Xxpkm0+CrAtQziS7dy3ZVvRp4NCN1nMZlPpNSXmBtw==}
+    dev: false
+
   /@fontsource/blackout-two-am@5.0.7:
     resolution: {integrity: sha512-ivVO9Yw4Sy1ptbHjLE69cwR+P0X7INzPho2kfZ9xszmYHDNO1JOsUpmfGHNnSd7O4BPnMAYPQBJ6wuzSa9e4IQ==}
     dev: false
@@ -1373,8 +1386,16 @@ packages:
     resolution: {integrity: sha512-SA+Fvu9R6XTjaGYevk8qSmj3uSPYltKxmFx4j3IKkVRY4DplstMfmREACsPLnvePTsk6VzjngzBUWIxSYwJ01Q==}
     dev: false
 
+  /@fontsource/monoton@5.0.17:
+    resolution: {integrity: sha512-9vhMMEZJGb460dHBdM6oq6ayRo7klQNEgnhNhernqE6tNxyd+W6iXkRw+mY50yZu3ue7z9lwl2i/gL07nr5PmQ==}
+    dev: false
+
   /@fontsource/permanent-marker@5.0.8:
     resolution: {integrity: sha512-1cHvFLU+szU2R/SfRy5g8o5Jq/gdTtK7HjQkdjezcwiQdSQDQegslG9jI8wr8AJqDK1D+F6l2KDfFBlshUxYmw==}
+    dev: false
+
+  /@fontsource/rock-salt@5.0.17:
+    resolution: {integrity: sha512-EJNqXMAQ0E5ref7Z8jLJ9FE7yO3zgeHKCL6CqnuStnLVqhszJdV/PQhdfuVllBf5iLXPmMxQQBZga2IVQKkDew==}
     dev: false
 
   /@fontsource/rubik-burned@5.0.8:
