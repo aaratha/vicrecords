@@ -50,6 +50,9 @@ dependencies:
   netlify:
     specifier: ^13.1.11
     version: 13.1.11
+  react-icons:
+    specifier: ^4.12.0
+    version: 4.12.0(react@16.14.0)
   tailwindcss:
     specifier: ^3.0.24
     version: 3.3.5
@@ -11727,6 +11730,14 @@ packages:
       react-lifecycles-compat: 3.0.4
       shallowequal: 1.1.0
       source-map: 0.7.4
+    dev: false
+
+  /react-icons@4.12.0(react@16.14.0):
+    resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 16.14.0
     dev: false
 
   /react-immutable-proptypes@2.2.0(immutable@3.8.2):

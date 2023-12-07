@@ -47,7 +47,10 @@ const posts = (await getCollection('blog')).sort(
 			}
 			ul li img {
 				margin-bottom: 0.5rem;
-				border-radius: 12px;
+				border-radius: 0px;
+				&:hover {
+					border-radius: 20px;
+				}
 			}
 			ul li a {
 				display: block;
@@ -87,7 +90,7 @@ const posts = (await getCollection('blog')).sort(
 			}
 		</style>
 	</head>
-	<body class="bg-gradient-to-br from-black to-brown bg-cover">
+	<body class="bg-black">
 		<Header />
 		<main class=" mt-10">
 			<section>

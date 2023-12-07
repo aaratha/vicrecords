@@ -27,9 +27,18 @@ import '@fontsource/rock-salt';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js">
+			function changeWidth() {
+				console.log('Button clicked');  // This will log when the button is clicked
+				const gradientBlurDiv = document.getElementById('blur');
+				console.log('gradientBlurDiv:', gradientBlurDiv);  // This will log the selected element
+				if (gradientBlurDiv) {
+				gradientBlurDiv.style.transform = 'translateX(-100%)';
+				}
+			}
+		</script>
 	</head>
-	<body class=" bg-gradient-to-br from-black to-brown bg-cover">
+	<body class=" bg-gradient-to-br from-black to-brown bg-cover w-full overflow-x-hidden">
 		<Header title={SITE_TITLE} />
 		<Layout title={SITE_TITLE} >
 		<main >
@@ -38,22 +47,30 @@ import '@fontsource/rock-salt';
 					<img src="/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
 					<div class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover black-grad" />
 					<div class=" w-full h-full overflow-hidden absolute z-20 top-0 bg-cover" />
-					<div class="gradient-blur left-0 top-0 z-30 w-full sm:w-[35vw] sm:min-w-[30rem] h-[calc(100dvh)] absolute flex flex-col pl-10 pr-10 flex-wrap sm:flex-nowrap rounded-xl">
-						<h1 class="w-full border-t border-b border-white text-white mt-36 font-serif text-7xl z-30 sm:text-8xl md:text-8xl">Vic</h1>
-						<span class="text-right text-8xl z-30 font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
-						<div class="w-full border-t border-white z-30" />
-						<div class="flex flex-row mt-5 m-auto">
-							{/*<img src="/logo.png" class="w-[16rem] z-50">*/}
-							<div class="flex flex-col flex-wrap min-w-[5rem] max-w-[25rem] z-50">
-								<p class="font-bold text-2xl pt-4 pb-0 mb-[7px]">
-									Vic Records is the home of all things music at Victoria College.
-								</p>
-								<p class="text-lg">
-									Whether a musician or a fan of music, Vic Records offers everyone an opportunity to experience the future of music. Contact us to get involved in future events. We would love to have you!
-								</p>
+					<div id="blur" class="gradient-blur left-0 top-0 z-30 w-full sm:w-[35vw] sm:min-w-[30rem] h-[calc(100dvh)] absolute flex flex-row pl-10 flex-wrap sm:flex-nowrap rounded-xl">
+						<div class="flex flex-col">
+							<h1 class="w-full border-t border-b border-white text-white mt-36 font-serif text-7xl z-30 sm:text-8xl md:text-8xl">Vic</h1>
+							<span class="text-right text-8xl z-30 font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
+							<div class="w-full border-t border-white z-30" />
+							<div class="flex flex-row mt-5 m-auto">
+								{/*<img src="/logo.png" class="w-[16rem] z-50">*/}
+								<div class="flex flex-col flex-wrap min-w-[5rem] w-full z-50">
+									<p class="font-bold text-4xl pt-4 pb-0 mb-[7px]">
+										Vic Records is the home of all things music at Victoria College.
+									</p>
+									<p class="text-xl">
+										Whether a musician or a fan of music, Vic Records offers everyone an opportunity to experience the future of music. Contact us to get involved in future events. We would love to have you!
+									</p>
+								</div>
 							</div>
 						</div>
+						<button id="drawer" class="w-[7.6rem] z-30 m-auto">
+							<svg id='arrow' class="w-8 hover:w-[2.2rem] transition-all" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="arrow" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L9.41421 12L15.7071 18.2929C16.0976 18.6834 16.0976 19.3166 15.7071 19.7071C15.3166 20.0976 14.6834 20.0976 14.2929 19.7071L7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289Z" fill="#ffffff"></path> </g></svg>
+						</button>
 					</div>
+					<button id="drawer2" class="rotate-180 border w-[2.5rem] z-10 left-0 top-0  absolute content-center">
+						<svg class="w-8 hover:w-[2.2rem] transition-all" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L9.41421 12L15.7071 18.2929C16.0976 18.6834 16.0976 19.3166 15.7071 19.7071C15.3166 20.0976 14.6834 20.0976 14.2929 19.7071L7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289Z" fill="#ffffff"></path> </g></svg>
+					</button>
 					{/*<svg xmlns="http://www.w3.org/2000/svg" width="1288" height="136" viewBox="0 0 1288 232" fill="none" class="absolute z-20 mt-[6rem]" opacity="0.5">
 						<path d="M19 210C57.5 146 95 90 153 1H1286.5L1142 210H19Z" fill="black"/>
 						<path d="M1138 216.5H14.5L2 231.5H1123.5L1138 216.5Z" fill="black"/>
@@ -146,6 +163,30 @@ import '@fontsource/rock-salt';
 				}
 				});
 			}
+			let isTranslated = false;
+			let isRotated = false;
+			const tgt = document.querySelector("#drawer");
+				tgt.addEventListener("click", () => {
+					console.log("Hello, on client");
+					const gradientBlurDiv = document.getElementById('blur');
+					if (gradientBlurDiv) {
+						if (isTranslated) {
+						gradientBlurDiv.style.transform = 'translateX(0)';  // If the div is already translated, move it back to its original position
+						} else {
+						gradientBlurDiv.style.transform = 'translateX(-93%)';  // If the div is not translated, translate it
+						}
+						isTranslated = !isTranslated;  // Update the translation state
+					}
+					const svg = document.getElementById('arrow');  // Select the SVG
+					if (svg) {
+						if (isRotated) {
+						svg.style.transform = 'rotate(0deg)';  // If the SVG is already rotated, rotate it back to 0 degrees
+						} else {
+						svg.style.transform = 'rotate(180deg)';  // If the SVG is not rotated, rotate it by 180 degrees
+						}
+						isRotated = !isRotated;  // Update the rotation state
+					}  // Toggle the 'rotate-180' class
+				});
 		</script>
 	</body>
 </html>
@@ -162,14 +203,18 @@ import '@fontsource/rock-salt';
 
 	.gradient-blur {
 		box-shadow: 0 0 3rem 0 rgba(0, 0, 1, 0.5);
+		transition: transform 0.3s ease-in-out;
 		&:after {
 			content: '';
 			position: absolute;
 			inset: 0%;
-			background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+			background-image: linear-gradient(135deg, rgba(7, 7, 7, 0.514), rgba(255, 255, 255, 0.274));
 			backdrop-filter: blur(40px);
 			-webkit-mask: linear-gradient(-90deg, transparent, black 0%);
 		}
+	}
+	.rotate-180 {
+		transform: rotate(180deg);
 	}
 
 </style>
