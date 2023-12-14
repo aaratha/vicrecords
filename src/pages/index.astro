@@ -2,7 +2,6 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import React, { useState } from 'react';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Card from '../components/Card.astro';
 import logo from '../logo.svg';
@@ -88,16 +87,18 @@ import '@fontsource/rock-salt';
 			}
 			let gridElement = document.querySelector('#grid');
 
-			document.querySelector('#blur').addEventListener('mouseenter', function() {
-			if (window.innerWidth <= 767) { // 768px is a common breakpoint for mobile devices
+			document.querySelector('#blur')?.addEventListener('mouseenter', function() {
+			if (gridElement && window.innerWidth <= 767) { // 768px is a common breakpoint for mobile devices
 				gridElement.style.setProperty('--mt-value', '15%');
-			} else {
+			} else if (gridElement) {
 				gridElement.style.setProperty('--mt-value', '8%');
 			}
 			});
 
-			document.querySelector('#blur').addEventListener('mouseleave', function() {
-			gridElement.style.setProperty('--mt-value', '0');
+			document.querySelector('#blur')?.addEventListener('mouseleave', function() {
+			if (gridElement) {
+				gridElement.style.setProperty('--mt-value', '0');
+			}
 			});
 		</script>
 	</body>
