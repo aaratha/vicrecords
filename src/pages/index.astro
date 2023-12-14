@@ -151,7 +151,7 @@ import '@fontsource/rock-salt';
 	}
 
 	#grid {
-		margin-top: var(--mt-value, 0);
+		margin-top: 0;
 		transition: margin-top 0.3s ease-in-out;
 	}
 	#grid a {
@@ -170,6 +170,9 @@ import '@fontsource/rock-salt';
 			height: calc(100% - 2rem);
 			width: calc(100% - 2rem);
 		}
+		#blur:hover #grid {
+			margin-top: 10%;
+		}
 	}
 	/* Assuming 2 columns on small screens */
 	@media (max-width: 767px) {
@@ -184,6 +187,9 @@ import '@fontsource/rock-salt';
 		.margins:hover {
 			height: calc(100%);
 			width: calc(100%);
+		}
+		#blur:hover #grid {
+			margin-top: 15%;
 		}
 	}
 </style>
