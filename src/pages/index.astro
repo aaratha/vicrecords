@@ -85,20 +85,24 @@ import '@fontsource/rock-salt';
 				}
 				});
 			}
-			let gridElement = document.querySelector('#grid');
+			import { onMount } from 'svelte';
 
-			document.querySelector('#blur')?.addEventListener('mouseenter', function() {
-			if (gridElement && window.innerWidth <= 767) { // 768px is a common breakpoint for mobile devices
-				gridElement.style.setProperty('--mt-value', '15%');
-			} else if (gridElement) {
-				gridElement.style.setProperty('--mt-value', '8%');
-			}
-			});
+			onMount(() => {
+				let gridElement = document.querySelector('#grid');
 
-			document.querySelector('#blur')?.addEventListener('mouseleave', function() {
-			if (gridElement) {
-				gridElement.style.setProperty('--mt-value', '0');
-			}
+				document.querySelector('#blur')?.addEventListener('mouseenter', function() {
+				if (gridElement && window.innerWidth <= 767) { // 768px is a common breakpoint for mobile devices
+					(gridElement as HTMLElement).style.setProperty('--mt-value', '15%');
+				} else if (gridElement) {
+					(gridElement as HTMLElement).style.setProperty('--mt-value', '8%');
+				}
+				});
+
+				document.querySelector('#blur')?.addEventListener('mouseleave', function() {
+				if (gridElement) {
+					(gridElement as HTMLElement).style.setProperty('--mt-value', '0');
+				}
+				});
 			});
 		</script>
 	</body>
