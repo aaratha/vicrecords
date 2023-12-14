@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import React, { useState } from 'react';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Card from '../components/Card.astro';
 import logo from '../logo.svg';
@@ -19,6 +20,7 @@ import '@fontsource/rock-salt';
 //CMS.init()
 // Now the registry is available via the CMS object.
 //CMS.registerPreviewTemplate('my-template', MyTemplate)
+
 ---
 
 
@@ -28,118 +30,42 @@ import '@fontsource/rock-salt';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js">
-			function changeWidth() {
-				console.log('Button clicked');  // This will log when the button is clicked
-				const gradientBlurDiv = document.getElementById('blur');
-				console.log('gradientBlurDiv:', gradientBlurDiv);  // This will log the selected element
-				if (gradientBlurDiv) {
-				gradientBlurDiv.style.transform = 'translateX(-100%)';
-				}
-			}
 		</script>
 	</head>
-	<body class=" bg-gradient-to-br from-black to-brown bg-cover w-full overflow-x-hidden">
-		<Header title={SITE_TITLE} />
+	<body class="flex flex-col bg-gradient-to-br from-black to-brown bg-cover w-full overflow-x-hidden">
 		<Layout title={SITE_TITLE} >
-		<main >
-			<div class="flex flex-col items-center ">
-				<div class="h-[calc(100dvh)] flex flex-col items-center">
-					<img src="/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
-					<div class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover black-grad" />
-					<div class=" w-full h-full overflow-hidden absolute z-20 top-0 bg-cover" />
-					<div id="blur" class="gradient-blur left-0 top-0 z-30 w-full sm:w-[35vw] sm:min-w-[30rem] h-[calc(100dvh)] absolute flex flex-row pl-10 sm:flex-nowrap rounded-xl">
-						<div class="flex flex-col">
-							<h1 class="w-full border-t border-b border-white text-white mt-36 font-serif text-7xl z-30 sm:text-8xl md:text-8xl">Vic</h1>
-							<span class="text-right text-8xl z-30 font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
-							<div class="w-full border-t border-white z-30" />
-							<div class="flex flex-row mt-5 m-auto">
-								{/*<img src="/logo.png" class="w-[16rem] z-50">*/}
-								<div class="flex flex-col flex-wrap min-w-[4rem] w-full z-50">
-									<p class="font-bold text-4xl pt-4 pb-0 mb-[7px]">
-										Vic Records is the home of all things music at Victoria College.
-									</p>
-									<p class="text-xl">
-										Whether a musician or a fan of music, Vic Records offers everyone an opportunity to experience the future of music. Contact us to get involved in future events. We would love to have you!
-									</p>
-								</div>
-							</div>
-						</div>
-						<button id="drawer" class="w-[7.6rem] z-30 m-auto">
-							<svg id='arrow' class="w-8 hover:w-[2.2rem] transition-all hidden sm:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="arrow" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 4.29289C16.0976 4.68342 16.0976 5.31658 15.7071 5.70711L9.41421 12L15.7071 18.2929C16.0976 18.6834 16.0976 19.3166 15.7071 19.7071C15.3166 20.0976 14.6834 20.0976 14.2929 19.7071L7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929L14.2929 4.29289C14.6834 3.90237 15.3166 3.90237 15.7071 4.29289Z" fill="#ffffff"></path> </g></svg>
-						</button>
+		<main class="h-[calc(100dvh)] flex justify-center align-center w-full" >
+			<div class="h-[calc(100dvh)] flex flex-col items-center w-full justify-center">
+				<img src="/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
+				<div id="overlay" class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover overlay" />
+				<div id="blur" class=" hover:p-20 hover:w-full gradient-blur z-30 sm:w-[35vw] sm:min-w-[30rem] flex flex-col p-10 sm:flex-nowrap rounded-xl items-center box-border margins">
+					<div class="flex flex-col w-full ">
+						<h1 class="w-full border-t border-b border-white text-white font-serif text-7xl z-30 sm:text-8xl md:text-8xl">Vic</h1>
+						<h1 class="text-right text-7xl z-30 sm:text-8xl md:text-8xl z-30 font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
+						<div class="w-full border-t border-white z-30" />
 					</div>
-					{/*<svg xmlns="http://www.w3.org/2000/svg" width="1288" height="136" viewBox="0 0 1288 232" fill="none" class="absolute z-20 mt-[6rem]" opacity="0.5">
-						<path d="M19 210C57.5 146 95 90 153 1H1286.5L1142 210H19Z" fill="black"/>
-						<path d="M1138 216.5H14.5L2 231.5H1123.5L1138 216.5Z" fill="black"/>
-						<path d="M19 210C57.5 146 95 90 153 1H1286.5L1142 210H19Z" stroke="black"/>
-						<path d="M1138 216.5H14.5L2 231.5H1123.5L1138 216.5Z" stroke="black"/>
-					</svg>*/}
-					{/*<p class="italic z-10 text-indigo-950 font-serif text-xl flex flex-row items-center mb-12">
-						At
-						<img src="/uoft.jpg" class="ml-3 w-[10rem]" />
-					</p>*/}
-					
-					{/*<a class="m-auto mt-0 mb-0"><button class="border p-2 pl-4 pr-4 rounded-lg border-black border-opacity-25 hover:p-4 transition-all hover:shadow-xl hover:bg-gray-300">Explore</button></a>*/}
+					{/*<button id="exploreButton" class="z-100 button absolute p-2 border-white border w-[6rem] hover:bg-white hover:text-black hover:w-[7rem]">Explore</button>*/}
+					<div id="grid" class="z-100 grid grid-cols-2 sm:grid-cols-4 w-full h-[50%]">
+						<a href="/events" class="hover:bg-white hover:text-black transition-all">Events</a>
+						<a href="/playlists" class="hover:bg-white hover:text-black transition-all">Playlists</a>
+						<a href="/blog" class="hover:bg-white hover:text-black transition-all">Blog</a>
+						<a href="https://linktr.ee/vicrecords/" class="hover:bg-white hover:text-black transition-all" target="_blank">Links</a>
+					</div>
+					<div id="drawer" class="mt-20 flex flex-row opacity-0">
+						<a href="https://instagram.com/vicrecords" target="_blank" class="hover:scale-105 transition-all mr-3">
+							<span class="sr-only ">Follow Astro on Instagram</span>
+							<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 26 26" fill="currentColor">
+								<path d="M 7.546875 0 C 3.390625 0 0 3.390625 0 7.546875 L 0 18.453125 C 0 22.609375 3.390625 26 7.546875 26 L 18.453125 26 C 22.609375 26 26 22.609375 26 18.453125 L 26 7.546875 C 26 3.390625 22.609375 0 18.453125 0 Z M 7.546875 2 L 18.453125 2 C 21.527344 2 24 4.46875 24 7.546875 L 24 18.453125 C 24 21.527344 21.53125 24 18.453125 24 L 7.546875 24 C 4.472656 24 2 21.53125 2 18.453125 L 2 7.546875 C 2 4.472656 4.46875 2 7.546875 2 Z M 20.5 4 C 19.671875 4 19 4.671875 19 5.5 C 19 6.328125 19.671875 7 20.5 7 C 21.328125 7 22 6.328125 22 5.5 C 22 4.671875 21.328125 4 20.5 4 Z M 13 6 C 9.144531 6 6 9.144531 6 13 C 6 16.855469 9.144531 20 13 20 C 16.855469 20 20 16.855469 20 13 C 20 9.144531 16.855469 6 13 6 Z M 13 8 C 15.773438 8 18 10.226563 18 13 C 18 15.773438 15.773438 18 13 18 C 10.226563 18 8 15.773438 8 13 C 8 10.226563 10.226563 8 13 8 Z"></path>
+							</svg>
+						</a>
+						<a href="https://open.spotify.com/user/2j0d8udn3ply0hmxqd3bbsv4x?si=ffd8122a6ea84984" target="_blank" class="hover:scale-105 transition-all">
+							<span class="sr-only">Follow Astro on Twitter</span>
+							<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50" fill="currentColor">
+								<path d="M25.009,1.982C12.322,1.982,2,12.304,2,24.991S12.322,48,25.009,48s23.009-10.321,23.009-23.009S37.696,1.982,25.009,1.982z M34.748,35.333c-0.289,0.434-0.765,0.668-1.25,0.668c-0.286,0-0.575-0.081-0.831-0.252C30.194,34.1,26,33,22.5,33.001 c-3.714,0.002-6.498,0.914-6.526,0.923c-0.784,0.266-1.635-0.162-1.897-0.948s0.163-1.636,0.949-1.897 c0.132-0.044,3.279-1.075,7.474-1.077C26,30,30.868,30.944,34.332,33.253C35.022,33.713,35.208,34.644,34.748,35.333z M37.74,29.193 c-0.325,0.522-0.886,0.809-1.459,0.809c-0.31,0-0.624-0.083-0.906-0.26c-4.484-2.794-9.092-3.385-13.062-3.35 c-4.482,0.04-8.066,0.895-8.127,0.913c-0.907,0.258-1.861-0.272-2.12-1.183c-0.259-0.913,0.272-1.862,1.184-2.12 c0.277-0.079,3.854-0.959,8.751-1c4.465-0.037,10.029,0.61,15.191,3.826C37.995,27.328,38.242,28.388,37.74,29.193z M40.725,22.013 C40.352,22.647,39.684,23,38.998,23c-0.344,0-0.692-0.089-1.011-0.275c-5.226-3.068-11.58-3.719-15.99-3.725 c-0.021,0-0.042,0-0.063,0c-5.333,0-9.44,0.938-9.481,0.948c-1.078,0.247-2.151-0.419-2.401-1.495 c-0.25-1.075,0.417-2.149,1.492-2.4C11.729,16.01,16.117,15,21.934,15c0.023,0,0.046,0,0.069,0 c4.905,0.007,12.011,0.753,18.01,4.275C40.965,19.835,41.284,21.061,40.725,22.013z"></path>
+							</svg>
+						</a>
+					</div>
 				</div>
-				<ul role="list" class="pb-5 flex flex-row flex-wrap justify-center w-[100vw]">
-					<Card
-						href="https://linktr.ee/vicrecords/"
-						title="Links"
-						body="Explore our online presence on various platforms."
-					>
-						<svg class="h-full w-10"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						>
-							<path d="M4.715 6.542L3.343 7.914a3 3 0 104.243 4.243l1.828-1.829A3 3 0 008.586 5.5L8 6.086a1.002 1.002 0 00-.154.199 2 2 0 01.861 3.337L6.88 11.45a2 2 0 11-2.83-2.83l.793-.792a4.018 4.018 0 01-.128-1.287z" />
-							<path d="M6.586 4.672A3 3 0 007.414 9.5l.775-.776a2 2 0 01-.896-3.346L9.12 3.55a2 2 0 112.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 10-4.243-4.243L6.586 4.672z" />
-						</svg>
-					</Card>
-					<Card
-						href="https://astro.build/integrations/"
-						title="Events"
-						body="We host at least one event every month. Check out our calendar for more info."
-					>
-						<svg class="h-full w-9 mr-1"
-						fill="none"
-						stroke="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width={2}
-						viewBox="0 0 24 24"
-						>
-							<path stroke="none" d="M0 0h24v24H0z" />
-							<path d="M6 5 H18 A2 2 0 0 1 20 7 V19 A2 2 0 0 1 18 21 H6 A2 2 0 0 1 4 19 V7 A2 2 0 0 1 6 5 z" />
-							<path d="M16 3v4M8 3v4M4 11h16M8 15h2v2H8z" />
-						</svg>
-					</Card>
-					<Card
-						href="https://astro.build/themes/"
-						title="Playlists"
-						body="We make collaborative playlists every month, published on the 15th."
-					>
-						<svg class="h-full w-10 mr-1"
-						viewBox="0 0 24 24"
-						fill="currentColor"
-						>
-							<path d="M15 6H3v2h12V6m0 4H3v2h12v-2M3 16h8v-2H3v2M17 6v8.18c-.31-.11-.65-.18-1-.18a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V8h3V6h-5z" />
-						</svg>
-					</Card>
-					<Card
-						href="https://astro.build/chat/"
-						title="Blog"
-						body="Come read our blog posts about music, events, and more."
-					>
-						<svg class="h-full w-9 mr-1"
-							viewBox="0 0 24 24"
-							fill="currentColor"
-							height="1em"
-							width="1em"
-						>
-							<path d="M12 2A10 10 0 002 12a9.89 9.89 0 002.26 6.33l-2 2a1 1 0 00-.21 1.09A1 1 0 003 22h9a10 10 0 000-20zm0 18H5.41l.93-.93a1 1 0 000-1.41A8 8 0 1112 20zm5-9H7a1 1 0 000 2h10a1 1 0 000-2zm-2 4H9a1 1 0 000 2h6a1 1 0 000-2zM9 9h6a1 1 0 000-2H9a1 1 0 000 2z" />
-						</svg>
-					</Card>
-				</ul>
 			</div>
 		</main>
 		</Layout>
@@ -160,30 +86,19 @@ import '@fontsource/rock-salt';
 				}
 				});
 			}
-			let isTranslated = false;
-			let isRotated = false;
-			const tgt = document.querySelector("#drawer");
-				tgt.addEventListener("click", () => {
-					console.log("Hello, on client");
-					const gradientBlurDiv = document.getElementById('blur');
-					if (gradientBlurDiv) {
-						if (isTranslated) {
-						gradientBlurDiv.style.transform = 'translateX(0)';  // If the div is already translated, move it back to its original position
-						} else {
-						gradientBlurDiv.style.transform = 'translateX(-93%)';  // If the div is not translated, translate it
-						}
-						isTranslated = !isTranslated;  // Update the translation state
-					}
-					const svg = document.getElementById('arrow');  // Select the SVG
-					if (svg) {
-						if (isRotated) {
-						svg.style.transform = 'rotate(0deg)';  // If the SVG is already rotated, rotate it back to 0 degrees
-						} else {
-						svg.style.transform = 'rotate(180deg)';  // If the SVG is not rotated, rotate it by 180 degrees
-						}
-						isRotated = !isRotated;  // Update the rotation state
-					}  // Toggle the 'rotate-180' class
-				});
+			let gridElement = document.querySelector('#grid');
+
+			document.querySelector('#blur').addEventListener('mouseenter', function() {
+			if (window.innerWidth <= 767) { // 768px is a common breakpoint for mobile devices
+				gridElement.style.setProperty('--mt-value', '15%');
+			} else {
+				gridElement.style.setProperty('--mt-value', '8%');
+			}
+			});
+
+			document.querySelector('#blur').addEventListener('mouseleave', function() {
+			gridElement.style.setProperty('--mt-value', '0');
+			});
 		</script>
 	</body>
 </html>
@@ -194,24 +109,76 @@ import '@fontsource/rock-salt';
 	.special-font {
 		font-family: 'Permanent Marker', sans-serif;
 	}
-	.black-grad {
+	.overlay {
 		background: linear-gradient(to bottom, rgba(17, 17, 17, 0.4), rgba(0,0,0,0.4));
+		transition: background 0.5s ease;
 	}
 
 	.gradient-blur {
-		box-shadow: 0 0 3rem 0 rgba(0, 0, 1, 0.5);
-		transition: transform 0.3s ease-in-out;
-		&:after {
-			content: '';
-			position: absolute;
-			inset: 0%;
-			background-image: linear-gradient(135deg, rgba(7, 7, 7, 0.514), rgba(255, 255, 255, 0.274));
-			backdrop-filter: blur(40px);
-			-webkit-mask: linear-gradient(-90deg, transparent, black 0%);
+		transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+		height: 40vh;
+	}
+	@keyframes blur {
+		to {
+			backdrop-filter: blur(30px);
 		}
 	}
-	.rotate-180 {
-		transform: rotate(180deg);
+	.gradient-blur:hover {
+		box-shadow: 0 0 3rem 0 rgba(0, 0, 1, 0.5);
+		transition: 0.5s cubic-bezier(0.175, 0.885, 0.3, 1.4);
+		backdrop-filter: blur(10px);
+		animation: blur 0.5s 0.5s forwards;
+	}
+	
+	
+
+
+	div h1 {
+		transition: font-size 0.3s ease-in-out;
 	}
 
+	#blur:hover div h1 {
+		font-size: 3rem;
+	}
+
+	#blur #drawer {
+		opacity: 0;
+		transition: 0.2s ease-in-out;
+	}
+	#blur:hover #drawer {
+		opacity: 1;
+	}
+
+	#grid {
+		margin-top: var(--mt-value, 0);
+		transition: margin-top 0.3s ease-in-out;
+	}
+	#grid a {
+		border: 1px solid white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	/* Assuming 4 columns on large screens */
+	@media (min-width: 768px) {
+		#grid a:nth-child(n):not(:last-child) {
+			border-right: none;
+		}
+	}
+	/* Assuming 2 columns on small screens */
+	@media (max-width: 767px) {
+		#grid a:nth-child(1),
+		#grid a:nth-child(3) {
+			border-right: none;
+		}
+		#grid a:nth-child(1),
+		#grid a:nth-child(2) {
+		border-bottom: none;
+		}
+	}
+	.margins:hover {
+		height: calc(100% - 2rem);
+		width: calc(100% - 2rem);
+	}
 </style>
