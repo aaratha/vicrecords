@@ -7,12 +7,12 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'playlists'>['data'];
 
-const { title, description, pubDate, author, heroImage } = Astro.props;
+const { title, pubDate, playlistURL } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} />
 		<style>
 			main {
 				width: calc(100%);
@@ -54,16 +54,21 @@ const { title, description, pubDate, author, heroImage } = Astro.props;
 		<Header />
 		<main class="bg-gradient-to-br from-black to-brown bg-cover">
 			<article class="mt-10">
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-				</div>
 				<div class="prose">
 					<div class="title">
+						<h1>{title}</h1>
 						<div class="date">
 							<FormattedDate date={pubDate} />
 						</div>
-						<h1>{title}</h1>
-						<p>By {author}</p>
+						<iframe 
+							style="border-radius:12px" 
+							src={`${playlistURL}?utm_source=generator`} 
+							width="100%" 
+							height="352"
+							allowfullscreen="" 
+							allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+							loading="lazy">
+						</iframe>
 						<hr />
 					</div>
 					<slot />
