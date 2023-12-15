@@ -12,4 +12,28 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+const events = defineCollection({
+	// Type-check frontmatter using a schema
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		// Transform string to Date object
+		pubDate: z.coerce.date(),
+		author: z.string().optional(),
+		heroImage: z.string().optional(),
+	}),
+});
+
+const playlists = defineCollection({
+	// Type-check frontmatter using a schema
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		// Transform string to Date object
+		pubDate: z.coerce.date(),
+		author: z.string().optional(),
+		heroImage: z.string().optional(),
+	}),
+});
+
+export const collections = { blog, events, playlists };

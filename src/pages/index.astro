@@ -42,10 +42,10 @@ import '@fontsource/rock-salt';
 					</div>
 					{/*<button id="exploreButton class="z-100 button absolute p-2 border-white border w-[6rem] hover:bg-white hover:text-black hover:w-[7rem]">Explore</button>*/}
 					<div id="grid" class="z-100 grid grid-cols-2 sm:grid-cols-4 w-full h-[50%]">
-						<a href="/events" class="hover:bg-white hover:text-black transition-all">Events</a>
-						<a href="/playlists" class="hover:bg-white hover:text-black transition-all">Playlists</a>
-						<a href="/blog" class="hover:bg-white hover:text-black transition-all">Blog</a>
-						<a href="https://linktr.ee/vicrecords/" class="hover:bg-white hover:text-black transition-all" target="_blank">Links</a>
+						<a href="/events" class="hover:text-3xl hover:bg-white hover:text-black transition-all">Events</a>
+						<a href="/playlists" class="hover:bg-white hover:text-3xl hover:text-black transition-all">Playlists</a>
+						<a href="/blog" class="hover:text-3xl hover:bg-white hover:text-black transition-all">Blog</a>
+						<a href="https://linktr.ee/vicrecords/" class="hover:text-3xl hover:bg-white hover:text-black transition-all" target="_blank">Links</a>
 					</div>
 					<div id="drawer" class="mt-20 flex flex-row opacity-0">
 						<a href="https://instagram.com/vicrecords" target="_blank" class="hover:scale-105 transition-all mr-3">
@@ -85,6 +85,8 @@ import '@fontsource/rock-salt';
 
 			(function() {
 				let gridElement = document.querySelector('#grid') as HTMLElement;
+				var blurElement = document.querySelector('#blur');
+				var gridButtons = gridElement.querySelectorAll('button');
 
 				document.querySelector('#blur')?.addEventListener('mouseenter', function() {
 				if (gridElement && window.innerWidth <= 767) { // 768px is a common breakpoint for mobile devices
@@ -98,6 +100,17 @@ import '@fontsource/rock-salt';
 				if (gridElement) {
 					gridElement.style.setProperty('--mt-value', '0');
 				}
+				gridButtons.forEach(function(button) {
+					button.classList.add('no-interaction');
+
+					// Add a 'touchstart' event listener to the button
+					button.addEventListener('touchstart', function(event) {
+						// If the 'no-interaction' class is present on the button, prevent the touchstart event from firing
+						if (button.classList.contains('no-interaction')) {
+						event.preventDefault();
+						}
+					});
+				});
 				});
 			})();
 		</script>
@@ -190,6 +203,9 @@ import '@fontsource/rock-salt';
 		}
 		#blur:hover #grid {
 			margin-top: 15%;
+		}
+		button.no-interaction {
+			pointer-events: none;
 		}
 	}
 </style>
