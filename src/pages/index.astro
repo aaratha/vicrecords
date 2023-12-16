@@ -1,9 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import logo from '../logo.svg';
 import Layout from '../layouts/Layout.astro';
 import '@fontsource/permanent-marker';
 import '@fontsource/blackout-two-am';
@@ -85,7 +83,6 @@ import '@fontsource/rock-salt';
 
 			(function() {
 				let gridElement = document.querySelector('#grid') as HTMLElement;
-				var blurElement = document.querySelector('#blur');
 				var gridButtons = gridElement.querySelectorAll('button');
 
 				document.querySelector('#blur')?.addEventListener('mouseenter', function() {

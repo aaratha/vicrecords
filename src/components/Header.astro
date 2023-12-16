@@ -63,8 +63,10 @@ import { SITE_TITLE } from '../consts';
 	
 	function toggleNav() {
 		const drawer = document.getElementById('drawer');
-		drawer.style.transform = drawerOpen ? 'translateX(-100%)' : 'translateX(0)';
-		drawerOpen = !drawerOpen;
+		if (drawer) {
+			drawer.style.transform = drawerOpen ? 'translateX(-100%)' : 'translateX(0)';
+			drawerOpen = !drawerOpen;
+		}
 	}
 </script>
 <style>
