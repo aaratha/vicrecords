@@ -17,7 +17,7 @@ const posts = (await getCollection('events')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
-				width: 960px;
+				width: 100%;
 			}
 			ul {
 				display: flex;
@@ -26,6 +26,9 @@ const posts = (await getCollection('events')).sort(
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
+				width: 100%;
+				align-items: center;
+				justify-content: center;
 			}
 			ul li {
 				width: calc(50% - 1rem);
@@ -34,22 +37,10 @@ const posts = (await getCollection('events')).sort(
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
 			ul li img {
 				margin-bottom: 0.5rem;
 				border-radius: 0px;
 				&:hover {
-					border-radius: 20px;
 				}
 			}
 			ul li a {
@@ -57,7 +48,7 @@ const posts = (await getCollection('events')).sort(
 			}
 			.title {
 				margin: 0;
-				color: rgba(255, 255, 255, 0.473);
+				color: rgb(255, 255, 255);
 				line-height: 1;
 			}
 			.date {
@@ -68,10 +59,10 @@ const posts = (await getCollection('events')).sort(
 				color: rgb(255, 56, 56);
 			}
 			ul li a:hover .date {
-				color: rgba(255, 255, 255, 0.473);
+				color: rgb(255, 255, 255);
 			}
 			ul a:hover img {
-				box-shadow: var(--box-shadow);
+				box-shadow: 0px 0px 0px 5px rgb(255, 255, 255);
 			}
 			@media (max-width: 720px) {
 				ul {
@@ -80,12 +71,14 @@ const posts = (await getCollection('events')).sort(
 				ul li {
 					width: 100%;
 					text-align: center;
+					margin-left: 10vw;
+					margin-right: 10vw;
 				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
+			}
+			@media (min-width: 720px) {
+				ul {
+					max-width: 45rem;
+					margin: auto;
 				}
 			}
 		</style>

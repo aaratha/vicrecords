@@ -4,10 +4,22 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header class="text-white">
-	<nav class=" bg-transparent">
+	<nav class=" bg-transparent h-[4rem]">
 		<h2 class=""><a href="/" class=" text-2xl">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
+		<button id="burger" class="hamburger-icon text-xl mr-3">
+            &#9776; <!-- Unicode character for a hamburger icon -->
+        </button>
+		<div class="nav-links">
 			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/events">Events</HeaderLink>
+			<HeaderLink href="/playlists">Playlists</HeaderLink>
+			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+		</div>
+		<div id="drawer" class="drawer absolute top-0 left-0 z-[1000] bg-black flex flex-col h-[calc(100dvh)] w-[calc(100dvw)] pl-5 pr-5 pt-10">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/events">Events</HeaderLink>
+			<HeaderLink href="/playlists">Playlists</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
@@ -37,6 +49,24 @@ import { SITE_TITLE } from '../consts';
 		</div>
 	</nav>
 </header>
+<script>
+	const burger = document.getElementById('burger');
+
+	// Handle clicks on each button.
+	if (burger) {
+		burger.addEventListener('click', () => {
+			toggleNav()
+		});
+	}
+
+    let drawerOpen = false;
+	
+	function toggleNav() {
+		const drawer = document.getElementById('drawer');
+		drawer.style.transform = drawerOpen ? 'translateX(-100%)' : 'translateX(0)';
+		drawerOpen = !drawerOpen;
+	}
+</script>
 <style>
 	header {
 		margin: 0;
@@ -75,13 +105,26 @@ import { SITE_TITLE } from '../consts';
 		text-decoration: none;
 		border-bottom-color: var(--black);
 	}
+	.drawer {
+		transition: all 0.3s ease-in-out;
+		transform: translateX(-100%);
+	}
 	.social-links,
 	.social-links a {
 		display: flex;
 	}
+	.hamburger-icon {
+        display: none;
+    }
 	@media (max-width: 720px) {
 		.social-links {
 			display: none;
 		}
+		.nav-links {
+            display: none;
+        }
+		.hamburger-icon {
+            display: block;
+        }
 	}
 </style>
