@@ -39,7 +39,6 @@ import '@fontsource/rock-salt';
 						<div class="w-full border-t border-white z-30" />
 						<div id="drawer" class="mt-2 sm:mt-5 font-thin flex flex-row text-2xl sm:text-4xl text-center justify-center text-white bg-white bg-opacity-10 ">AT UNIVERSITY OF TORONTO</div>
 					</div>
-					{/*<button id="exploreButton class="z-100 button absolute p-2 border-white border w-[6rem] hover:bg-white hover:text-black hover:w-[7rem]">Explore</button>*/}
 					<div id="grid" class="z-100 grid grid-cols-2 sm:grid-cols-4 w-full h-[50%]">
 						<a href="/events" class="hover:text-3xl hover:bg-white hover:text-black transition-all">Events</a>
 						<a href="/playlists" class="hover:bg-white hover:text-3xl hover:text-black transition-all">Playlists</a>
@@ -127,7 +126,7 @@ import '@fontsource/rock-salt';
 	}
 
 	.gradient-blur {
-		transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+		transition: 0.5s cubic-bezier(0,1.04,.65,.96);
 		height: 40vh;
 	}
 	@keyframes blur {
@@ -137,7 +136,7 @@ import '@fontsource/rock-salt';
 	}
 	.gradient-blur:hover {
 		box-shadow: 0 0 3rem 0 rgba(0, 0, 1, 0.5);
-		transition: 0.5s cubic-bezier(0,.73,.38,1.17);
+		transition: 0.5s cubic-bezier(.52,.19,.39,.95);
 		backdrop-filter: blur(10px);
 		animation: blur 0.5s 0.5s forwards;
 	}
