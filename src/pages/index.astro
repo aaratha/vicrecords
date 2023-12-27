@@ -32,13 +32,13 @@ import '@fontsource/rock-salt';
 				<img src="/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
 				<div id="overlay" class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover overlay" />
 				<div id="blur" class=" hover:w-full gradient-blur z-30 sm:w-[35vw] sm:min-w-[30rem] flex flex-col p-10 sm:flex-nowrap sm:rounded-xl items-center box-border margins">
-					<div class="flex flex-col w-full ">
+					<div class=" flex flex-col w-full ">
 						<h1 class="w-full border-t border-b border-white text-white font-serif text-7xl z-30 sm:text-8xl md:text-8xl">Vic</h1>
-						<h1 class="text-right text-7xl z-30 sm:text-8xl md:text-8xl z-30 font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
-						<div class="w-full border-t border-white z-30" />
-						<div id="drawer" class="mt-2 sm:mt-5 font-thin flex flex-row text-2xl sm:text-4xl text-center justify-center text-white bg-white bg-opacity-10 ">AT UNIVERSITY OF TORONTO</div>
+						<h1 class="mb-0 pb-0 text-right text-7xl z-30 sm:text-8xl md:text-8xl z-30 font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
+						<div class=" w-full border-t border-white z-30" />
+						<div id="drawer" class=" mt-2 sm:mt-5 font-thin flex flex-row text-2xl sm:text-4xl text-center justify-center text-white bg-white bg-opacity-10 ">AT UNIVERSITY OF TORONTO</div>
 					</div>
-					<div id="grid" class="z-100 grid grid-cols-2 sm:grid-cols-4 w-full h-[50%]">
+					<div id="grid" class=" z-100 grid grid-cols-2 sm:grid-cols-4 w-full h-[50%]">
 						<a href="/events" class="hover:text-3xl hover:bg-white hover:text-black transition-all">Events</a>
 						<a href="/playlists" class="hover:bg-white hover:text-3xl hover:text-black transition-all">Playlists</a>
 						<a href="/blog" class="hover:text-3xl hover:bg-white hover:text-black transition-all">Blog</a>
@@ -59,7 +59,7 @@ import '@fontsource/rock-salt';
 						</a>
 					</div>
 				</div>
-          <button id='enter-button' class='sm:hidden mt-20 background-blur z-[1000] rounded-full p-5 text-3xl border border-white'>Enter</button>
+          <button id='enter-button' class='sm:hidden mt-20 background-blur z-[1000] rounded-full p-5 text-3xl border border-white border-opacity-50'>Enter</button>
 			</div>
 		</main>
 		</Layout>
@@ -155,22 +155,26 @@ import '@fontsource/rock-salt';
 		animation: blur 0.5s 0.5s forwards;
 	}
 	
-	
-
 
 	div h1 {
 		transition: font-size 0.3s ease-in-out;
 	}
+
+  .hovered div h1,
 	#blur:hover div h1 {
 		font-size: 3rem;
 	}
 
-	#blur #drawer {
+	#drawer {
+    height: 0.5rem;
 		opacity: 0;
 		transition: 0.2s ease-in-out;
 	}
-  .hovered,
-	#blur:hover #drawer {
+
+  .hovered #drawer,
+  #blur:hover #drawer {
+    height: 2.5rem;
+		transition: 0.2s ease-in-out;
 		opacity: 1;
 	}
 
@@ -195,7 +199,6 @@ import '@fontsource/rock-salt';
 			height: calc(100% - 2rem);
 			width: calc(100% - 2rem);
     }
-    .hovered,
 		#blur:hover #grid {
 			margin-top: 10%;
     }
@@ -220,10 +223,13 @@ import '@fontsource/rock-salt';
 			height: calc(100%);
 			width: calc(100%);
     }
-    .hovered,
-		#grid {
+
+    .hovered #grid,
+		#blur:hover #grid {
 			margin-top: 15%;
 		}
+
+
 		button.no-interaction {
 			pointer-events: none;
     }
