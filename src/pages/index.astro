@@ -60,6 +60,7 @@ import '@fontsource/rock-salt';
 						</a>
 					</div>
 				</div>
+          <button id='enter-button' class='sm:hidden mt-20 background-blur z-[1000] rounded-full p-5 text-3xl border border-white'>Enter</button>
 			</div>
 		</main>
 		</Layout>
@@ -84,36 +85,49 @@ import '@fontsource/rock-salt';
 			(function() {
 				let gridElement = document.querySelector('#grid') as HTMLElement;
 				var gridButtons = gridElement.querySelectorAll('button');
+        let enterButton = document.getElementById('enter-button');
+        let blurElement = document.getElementById('blur');
 
-				document.querySelector('#blur')?.addEventListener('mouseenter', function() {
-				if (gridElement && window.innerWidth <= 767) { // 768px is a common breakpoint for mobile devices
-					gridElement.style.setProperty('--mt-value', '15%');
-				} else if (gridElement) {
-					gridElement.style.setProperty('--mt-value', '8%');
-				}
-				});
+				blurElement.addEventListener('mouseenter', function() {
+          if (gridElement && window.innerWidth <= 767) { // 768px is a common breakpoint for mobile devices
+            gridElement.style.setProperty('--mt-value', '15%');
+          } else if (gridElement) {
+            gridElement.style.setProperty('--mt-value', '8%');
+          }
+          });
 
-				document.querySelector('#blur')?.addEventListener('mouseleave', function() {
-				if (gridElement) {
-					gridElement.style.setProperty('--mt-value', '0');
-				}
-				gridButtons.forEach(function(button) {
-					button.classList.add('no-interaction');
+				blurElement.addEventListener('mouseleave', function() {
+          if (gridElement) {
+            gridElement.style.setProperty('--mt-value', '0');
+          }
+          gridButtons.forEach(function(button) {
+            button.classList.add('no-interaction');
 
-					// Add a 'touchstart' event listener to the button
-					button.addEventListener('touchstart', function(event) {
-						// If the 'no-interaction' class is present on the button, prevent the touchstart event from firing
-						if (button.classList.contains('no-interaction')) {
-						event.preventDefault();
-						}
-					});
+            // Add a 'touchstart' event listener to the button
+            button.addEventListener('touchstart', function(event) {
+              // If the 'no-interaction' class is present on the button, prevent the touchstart event from firing
+              if (button.classList.contains('no-interaction')) {
+              event.preventDefault();
+              }
+            });
+          });
 				});
-				});
+        function activateBlurAndHideButton() {
+          // Trigger the hover effect on the blur element
+          blurElement.classList.add('hovered');
+          // Hide the Enter button
+          enterButton.classList.add('hidden');
+        }
+
+        enterButton.addEventListener('click', activateBlurAndHideButton);
 			})();
 		</script>
 	</body>
 </html>
 <style>
+  .background-blur {
+    backdrop-filter: blur(10px);
+  }
 	.vic-font {
 		font-family: 'Rock Salt', sans-serif;
 	}
@@ -133,7 +147,8 @@ import '@fontsource/rock-salt';
 		to {
 			backdrop-filter: blur(30px);
 		}
-	}
+  }
+  .hovered,
 	.gradient-blur:hover {
 		box-shadow: 0 0 3rem 0 rgba(0, 0, 1, 0.5);
 		transition: 0.5s cubic-bezier(.52,.19,.39,.95);
@@ -147,7 +162,7 @@ import '@fontsource/rock-salt';
 	div h1 {
 		transition: font-size 0.3s ease-in-out;
 	}
-
+  .hovered,
 	#blur:hover div h1 {
 		font-size: 3rem;
 	}
@@ -156,6 +171,7 @@ import '@fontsource/rock-salt';
 		opacity: 0;
 		transition: 0.2s ease-in-out;
 	}
+  .hovered,
 	#blur:hover #drawer {
 		opacity: 1;
 	}
@@ -175,11 +191,13 @@ import '@fontsource/rock-salt';
 	@media (min-width: 768px) {
 		#grid a:nth-child(n):not(:last-child) {
 			border-right: none;
-		}
+    }
+    .hovered,
 		.margins:hover {
 			height: calc(100% - 2rem);
 			width: calc(100% - 2rem);
-		}
+    }
+    .hovered,
 		#blur:hover #grid {
 			margin-top: 10%;
 		}
@@ -193,11 +211,13 @@ import '@fontsource/rock-salt';
 		#grid a:nth-child(1),
 		#grid a:nth-child(2) {
 		border-bottom: none;
-		}
+    }
+    .hovered,
 		.margins:hover {
 			height: calc(100%);
 			width: calc(100%);
-		}
+    }
+    .hovered,
 		#blur:hover #grid {
 			margin-top: 15%;
 		}
