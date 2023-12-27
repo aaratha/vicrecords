@@ -32,7 +32,7 @@ import '@fontsource/rock-salt';
 			<div class="h-[calc(100dvh)] flex flex-col items-center w-full justify-center">
 				<img src="/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
 				<div id="overlay" class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover overlay" />
-				<div id="blur" class="hover:p-10 hover:sm:p-20 hover:w-full gradient-blur z-30 sm:w-[35vw] sm:min-w-[30rem] flex flex-col p-10 sm:flex-nowrap sm:rounded-xl items-center box-border margins">
+				<div id="blur" class=" hover:w-full gradient-blur z-30 sm:w-[35vw] sm:min-w-[30rem] flex flex-col p-10 sm:flex-nowrap sm:rounded-xl items-center box-border margins">
 					<div class="flex flex-col w-full ">
 						<h1 class="w-full border-t border-b border-white text-white font-serif text-7xl z-30 sm:text-8xl md:text-8xl">Vic</h1>
 						<h1 class="text-right text-7xl z-30 sm:text-8xl md:text-8xl z-30 font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
@@ -162,7 +162,6 @@ import '@fontsource/rock-salt';
 	div h1 {
 		transition: font-size 0.3s ease-in-out;
 	}
-  .hovered,
 	#blur:hover div h1 {
 		font-size: 3rem;
 	}
@@ -200,7 +199,12 @@ import '@fontsource/rock-salt';
     .hovered,
 		#blur:hover #grid {
 			margin-top: 10%;
-		}
+    }
+
+    .hovered,
+    #blur:hover {
+      padding: 5rem;
+    }
 	}
 	/* Assuming 2 columns on small screens */
 	@media (max-width: 767px) {
@@ -218,11 +222,17 @@ import '@fontsource/rock-salt';
 			width: calc(100%);
     }
     .hovered,
-		#blur:hover #grid {
+		#grid {
 			margin-top: 15%;
 		}
 		button.no-interaction {
 			pointer-events: none;
-		}
+    }
+
+    .hovered,
+    #blur:hover {
+      padding: 2.5rem;
+      margin-top: 0;
+    }
 	}
 </style>
