@@ -88,7 +88,7 @@ import '@fontsource/rock-salt';
         let enterButton = document.getElementById('enter-button');
         let blurElement = document.getElementById('blur');
 
-				blurElement.addEventListener('mouseenter', function() {
+				blurElement?.addEventListener('mouseenter', function() {
           if (gridElement && window.innerWidth <= 767) { // 768px is a common breakpoint for mobile devices
             gridElement.style.setProperty('--mt-value', '15%');
           } else if (gridElement) {
@@ -96,7 +96,7 @@ import '@fontsource/rock-salt';
           }
           });
 
-				blurElement.addEventListener('mouseleave', function() {
+				blurElement?.addEventListener('mouseleave', function() {
           if (gridElement) {
             gridElement.style.setProperty('--mt-value', '0');
           }
@@ -114,12 +114,12 @@ import '@fontsource/rock-salt';
 				});
         function activateBlurAndHideButton() {
           // Trigger the hover effect on the blur element
-          blurElement.classList.add('hovered');
+          blurElement?.classList.add('hovered');
           // Hide the Enter button
-          enterButton.classList.add('hidden');
+          enterButton?.classList.add('hidden');
         }
 
-        enterButton.addEventListener('click', activateBlurAndHideButton);
+        enterButton?.addEventListener('click', activateBlurAndHideButton);
 			})();
 		</script>
 	</body>
