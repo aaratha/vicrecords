@@ -34,9 +34,9 @@ import '@fontsource/rock-salt';
 				<div id="blur" class=" hover:w-full gradient-blur z-30 sm:w-[35vw] sm:min-w-[30rem] flex flex-col p-10 sm:flex-nowrap sm:rounded-xl items-center box-border margins">
 					<div class=" flex flex-col w-full ">
 						<h1 class="w-full border-t border-b border-white text-white font-serif text-7xl z-30 sm:text-8xl md:text-8xl">Vic</h1>
-						<h1 class="mb-0 pb-0 text-right text-7xl z-30 sm:text-8xl md:text-8xl z-30 font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
+						<h1 class="mb-0 pb-0 text-right text-7xl z-30 sm:text-8xl md:text-8xl font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
 						<div class=" w-full border-t border-white z-30" />
-						<div id="drawer" class=" pt-1 sm:pt-0 mt-2 sm:mt-5 font-thin flex flex-row justify-center text-lg sm:text-3xl text-center justify-center text-white bg-white bg-opacity-10 ">AT UNIVERSITY OF TORONTO</div>
+						<div id="drawer" class=" pt-1 sm:pt-0 mt-2 sm:mt-5 font-thin flex flex-row justify-center text-lg sm:text-3xl text-center text-white bg-white bg-opacity-10 ">AT UNIVERSITY OF TORONTO</div>
 
 					</div>
 					<div id="grid" class=" z-100 grid grid-cols-2 sm:grid-cols-4 w-full h-[50%]">
@@ -128,12 +128,15 @@ import '@fontsource/rock-salt';
   .background-blur {
     backdrop-filter: blur(10px);
   }
+
 	.vic-font {
 		font-family: 'Rock Salt', sans-serif;
 	}
+
 	.special-font {
 		font-family: 'Permanent Marker', sans-serif;
 	}
+
 	.overlay {
 		background: linear-gradient(to bottom, rgba(17, 17, 17, 0.4), rgba(0,0,0,0.4));
 		transition: background 0.5s ease;
@@ -220,14 +223,12 @@ import '@fontsource/rock-salt';
 		#grid a:nth-child(2) {
 		border-bottom: none;
     }
-    .hovered,
-		.margins:hover {
+    .hovered {
 			height: calc(100%);
 			width: calc(100%);
     }
 
-    .hovered #grid,
-		#blur:hover #grid {
+    .hovered #grid {
 			margin-top: 15%;
 		}
 
@@ -236,10 +237,17 @@ import '@fontsource/rock-salt';
 			pointer-events: none;
     }
 
-    .hovered,
-    #blur:hover {
+    .hovered {
       padding: 2.5rem;
       margin-top: 0;
+    }
+
+    #blur {
+			pointer-events: none;
+    }
+
+    .hovered {
+      pointer-events: all !important;
     }
 	}
 </style>
