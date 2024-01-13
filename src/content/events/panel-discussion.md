@@ -2,7 +2,7 @@
 title: PANEL DISCUSSION
 description: PANEL DISCUSSION
 author: Vic Records Team
-pubDate: 2024-01-13T23:44:59.854Z
+pubDate: 2023-03-13T22:58:03.106Z
 heroImage: /assets/275400976_221104220200669_424638737373620187_n.jpg
 ---
 ### Behind the Scenes of Music
