@@ -2,7 +2,7 @@
 title: PANEL DISCUSSION
 description: PANEL DISCUSSION
 author: Vic Records Team
-pubDate: 2024-01-13T23:44:59.854Z
+pubDate: 2023-03-13T22:58:03.106Z
 heroImage: /assets/275400976_221104220200669_424638737373620187_n.jpg
 ---
 ### Behind the Scenes of Music
@@ -11,11 +11,17 @@ Calling all U of T students! Have you ever wondered what goes on behind the scen
 
 Enjoy a recording of this event! Scroll below for details about each panelist, as well as their contact details! 
 
+
+
 ### EVENT RECORDING
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/efrZJxom9K8?si=TqXKIEOUwwWt6c3h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+
+
 ### MEET THE PANELISTS
+
+
 
 <table>
 <tr>
