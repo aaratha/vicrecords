@@ -88,11 +88,8 @@ const posts = (await getCollection("events")).sort(
   <body class="bg-black">
     <Header />
     <main class="flex flex-col mt-10 w-full">
-      <div class="flex flex-row border-b mb-10 border-white">
-        <h1 class="">Gallery</h1>
-        <PhotoGallery />
-      </div>
-      <section>
+      <PhotoGallery />
+      <section class="mt-10">
         <ul>
           {
             posts.map((post) => (
