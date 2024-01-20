@@ -1,247 +1,329 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import Layout from '../layouts/Layout.astro';
-import Gallery from '../components/Gallery.astro'
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Layout from "../layouts/Layout.astro";
+import Gallery from "../components/Gallery.astro";
 
 //import CMS from 'decap-cms-app'
 // Initialize the CMS object
 //CMS.init()
 // Now the registry is available via the CMS object.
 //CMS.registerPreviewTemplate('my-template', MyTemplate)
-
 ---
 
 <!doctype html>
-<html lang="en" class='bg-black'>
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-	</head>
-	<body class="flex flex-col bg-gradient-to-br from-black to-brown bg-cover w-full overflow-x-hidden">
-		<Layout title={SITE_TITLE} >
-		<main class="h-[calc(100dvh)] flex justify-center align-center w-full" >
-			<div class="h-[calc(100dvh)] flex flex-col items-center w-full justify-center">
-				<img src="/backdrop.jpg" class=" w-full h-full overflow-hidden absolute z-0 top-0 object-cover" />
-				<div id="overlay" class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover overlay" />
-				<div id="blur" class=" hover:w-full gradient-blur z-30 sm:w-[35vw] sm:min-w-[30rem] flex flex-col p-10 sm:flex-nowrap sm:rounded-xl items-center box-border margins">
-					<div class=" flex flex-col w-full ">
-						<h1 class="w-full border-t border-b border-white text-white font-serif text-7xl z-30 sm:text-8xl md:text-8xl">Vic</h1>
-						<h1 class="mb-0 pb-0 text-right text-7xl z-30 sm:text-8xl md:text-8xl font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown">Records</span>
-						<div class=" w-full border-t border-white z-30" />
-						<div id="drawer" class=" pt-1 sm:pt-0 mt-2 sm:mt-5 font-thin flex flex-row justify-center text-lg sm:text-3xl text-center text-white bg-white bg-opacity-10 ">AT UNIVERSITY OF TORONTO</div>
-
-					</div>
-					<div id="grid" class=" z-100 grid grid-cols-2 sm:grid-cols-4 w-full h-[50%]">
-						<a href="/events" class="hover:text-3xl hover:bg-white hover:text-black transition-all">Events</a>
-						<a href="/playlists" class="hover:bg-white hover:text-3xl hover:text-black transition-all">Playlists</a>
-						<a href="/blog" class="hover:text-3xl hover:bg-white hover:text-black transition-all">Blog</a>
-						<a href="https://linktr.ee/vicrecords/" class="hover:text-3xl hover:bg-white hover:text-black transition-all" target="_blank">Links</a>
-					</div>
-					<div id="drawer" class="mt-20 flex flex-row opacity-0">
-						<a href="https://instagram.com/vicrecords" target="_blank" class="hover:scale-105 transition-all mr-3">
-							<span class="sr-only ">Follow Astro on Instagram</span>
-							<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 26 26" fill="currentColor">
-								<path d="M 7.546875 0 C 3.390625 0 0 3.390625 0 7.546875 L 0 18.453125 C 0 22.609375 3.390625 26 7.546875 26 L 18.453125 26 C 22.609375 26 26 22.609375 26 18.453125 L 26 7.546875 C 26 3.390625 22.609375 0 18.453125 0 Z M 7.546875 2 L 18.453125 2 C 21.527344 2 24 4.46875 24 7.546875 L 24 18.453125 C 24 21.527344 21.53125 24 18.453125 24 L 7.546875 24 C 4.472656 24 2 21.53125 2 18.453125 L 2 7.546875 C 2 4.472656 4.46875 2 7.546875 2 Z M 20.5 4 C 19.671875 4 19 4.671875 19 5.5 C 19 6.328125 19.671875 7 20.5 7 C 21.328125 7 22 6.328125 22 5.5 C 22 4.671875 21.328125 4 20.5 4 Z M 13 6 C 9.144531 6 6 9.144531 6 13 C 6 16.855469 9.144531 20 13 20 C 16.855469 20 20 16.855469 20 13 C 20 9.144531 16.855469 6 13 6 Z M 13 8 C 15.773438 8 18 10.226563 18 13 C 18 15.773438 15.773438 18 13 18 C 10.226563 18 8 15.773438 8 13 C 8 10.226563 10.226563 8 13 8 Z"></path>
-							</svg>
-						</a>
-						<a href="https://open.spotify.com/user/2j0d8udn3ply0hmxqd3bbsv4x?si=ffd8122a6ea84984" target="_blank" class="hover:scale-105 transition-all">
-							<span class="sr-only">Follow Astro on Twitter</span>
-							<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50" fill="currentColor">
-								<path d="M25.009,1.982C12.322,1.982,2,12.304,2,24.991S12.322,48,25.009,48s23.009-10.321,23.009-23.009S37.696,1.982,25.009,1.982z M34.748,35.333c-0.289,0.434-0.765,0.668-1.25,0.668c-0.286,0-0.575-0.081-0.831-0.252C30.194,34.1,26,33,22.5,33.001 c-3.714,0.002-6.498,0.914-6.526,0.923c-0.784,0.266-1.635-0.162-1.897-0.948s0.163-1.636,0.949-1.897 c0.132-0.044,3.279-1.075,7.474-1.077C26,30,30.868,30.944,34.332,33.253C35.022,33.713,35.208,34.644,34.748,35.333z M37.74,29.193 c-0.325,0.522-0.886,0.809-1.459,0.809c-0.31,0-0.624-0.083-0.906-0.26c-4.484-2.794-9.092-3.385-13.062-3.35 c-4.482,0.04-8.066,0.895-8.127,0.913c-0.907,0.258-1.861-0.272-2.12-1.183c-0.259-0.913,0.272-1.862,1.184-2.12 c0.277-0.079,3.854-0.959,8.751-1c4.465-0.037,10.029,0.61,15.191,3.826C37.995,27.328,38.242,28.388,37.74,29.193z M40.725,22.013 C40.352,22.647,39.684,23,38.998,23c-0.344,0-0.692-0.089-1.011-0.275c-5.226-3.068-11.58-3.719-15.99-3.725 c-0.021,0-0.042,0-0.063,0c-5.333,0-9.44,0.938-9.481,0.948c-1.078,0.247-2.151-0.419-2.401-1.495 c-0.25-1.075,0.417-2.149,1.492-2.4C11.729,16.01,16.117,15,21.934,15c0.023,0,0.046,0,0.069,0 c4.905,0.007,12.011,0.753,18.01,4.275C40.965,19.835,41.284,21.061,40.725,22.013z"></path>
-							</svg>
-						</a>
-					</div>
-				</div>
-          <button id='enter-button' class='sm:hidden mt-20 background-blur z-[1000] rounded-full p-5 text-3xl border border-white border-opacity-50'>Enter</button>
-			</div>
-		</main>
-    <!-- <Gallery /> -->
-		<Footer />
-		<script>
-			declare global {
-				interface Window {
-					netlifyIdentity: any;
-				}
-			}
-
-			if (window.netlifyIdentity) {
-				window.netlifyIdentity.on("init", (user:any) => {
-				if (!user) {
-					window.netlifyIdentity.on("login", () => {
-					document.location.href = "/admin/";
-					});
-				}
-				});
-			}
-
-			(function() {
-				let gridElement = document.querySelector('#grid') as HTMLElement;
-				var gridButtons = gridElement.querySelectorAll('button');
-        let enterButton = document.getElementById('enter-button');
-        let blurElement = document.getElementById('blur');
-
-				blurElement?.addEventListener('mouseenter', function() {
-          if (gridElement && window.innerWidth <= 767) { // 768px is a common breakpoint for mobile devices
-            gridElement.style.setProperty('--mt-value', '15%');
-          } else if (gridElement) {
-            gridElement.style.setProperty('--mt-value', '8%');
+<html lang="en" class="bg-black">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <script
+      is:inline
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body
+    class="flex flex-col bg-gradient-to-br from-black to-brown bg-cover w-full overflow-x-hidden"
+  >
+    <Layout title={SITE_TITLE}>
+      <main class="h-[calc(100dvh)] flex justify-center align-center w-full">
+        <div
+          class="h-[calc(100dvh)] flex flex-col items-center w-full justify-center"
+        >
+          <img
+            src="/backdrop.jpg"
+            class="w-full h-full overflow-hidden absolute z-0 top-0 object-cover"
+          />
+          <div
+            id="overlay"
+            class="w-full h-full overflow-hidden absolute z-10 top-0 object-cover overlay"
+          >
+          </div>
+          <div
+            id="blur"
+            class="hover:w-full gradient-blur z-30 sm:w-[35vw] sm:min-w-[30rem] flex flex-col p-10 sm:flex-nowrap sm:rounded-xl items-center box-border margins"
+          >
+            <div class="flex flex-col w-full">
+              <h1
+                class="w-full border-t border-b border-white text-white font-serif text-7xl z-30 sm:text-8xl md:text-8xl"
+              >
+                Vic
+              </h1>
+              <h1
+                class="mb-0 pb-0 text-right text-7xl z-30 sm:text-8xl md:text-8xl font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown"
+              >
+                Records
+              </h1>
+              <div class="w-full border-t border-white z-30"></div>
+              <div
+                id="drawer"
+                class="pt-1 sm:pt-0 mt-2 sm:mt-5 font-thin flex flex-row justify-center text-lg sm:text-3xl text-center text-white bg-white bg-opacity-10"
+              >
+                AT UNIVERSITY OF TORONTO
+              </div>
+            </div>
+            <div
+              id="grid"
+              class="z-100 grid grid-cols-2 sm:grid-cols-4 w-full h-[50%]"
+            >
+              <a
+                href="/events"
+                class="hover:text-3xl hover:bg-white hover:text-black transition-all"
+                >Events</a
+              >
+              <a
+                href="/playlists"
+                class="hover:bg-white hover:text-3xl hover:text-black transition-all"
+                >Playlists</a
+              >
+              <a
+                href="/blog"
+                class="hover:text-3xl hover:bg-white hover:text-black transition-all"
+                >Blog</a
+              >
+              <a
+                href="https://linktr.ee/vicrecords/"
+                class="hover:text-3xl hover:bg-white hover:text-black transition-all"
+                target="_blank">Links</a
+              >
+            </div>
+            <div id="drawer" class="mt-20 flex flex-row opacity-0">
+              <a
+                href="https://instagram.com/vicrecords"
+                target="_blank"
+                class="hover:scale-105 transition-all mr-3"
+              >
+                <span class="sr-only">Follow Astro on Instagram</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 26 26"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M 7.546875 0 C 3.390625 0 0 3.390625 0 7.546875 L 0 18.453125 C 0 22.609375 3.390625 26 7.546875 26 L 18.453125 26 C 22.609375 26 26 22.609375 26 18.453125 L 26 7.546875 C 26 3.390625 22.609375 0 18.453125 0 Z M 7.546875 2 L 18.453125 2 C 21.527344 2 24 4.46875 24 7.546875 L 24 18.453125 C 24 21.527344 21.53125 24 18.453125 24 L 7.546875 24 C 4.472656 24 2 21.53125 2 18.453125 L 2 7.546875 C 2 4.472656 4.46875 2 7.546875 2 Z M 20.5 4 C 19.671875 4 19 4.671875 19 5.5 C 19 6.328125 19.671875 7 20.5 7 C 21.328125 7 22 6.328125 22 5.5 C 22 4.671875 21.328125 4 20.5 4 Z M 13 6 C 9.144531 6 6 9.144531 6 13 C 6 16.855469 9.144531 20 13 20 C 16.855469 20 20 16.855469 20 13 C 20 9.144531 16.855469 6 13 6 Z M 13 8 C 15.773438 8 18 10.226563 18 13 C 18 15.773438 15.773438 18 13 18 C 10.226563 18 8 15.773438 8 13 C 8 10.226563 10.226563 8 13 8 Z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://open.spotify.com/user/2j0d8udn3ply0hmxqd3bbsv4x?si=ffd8122a6ea84984"
+                target="_blank"
+                class="hover:scale-105 transition-all"
+              >
+                <span class="sr-only">Follow Astro on Twitter</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 50 50"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M25.009,1.982C12.322,1.982,2,12.304,2,24.991S12.322,48,25.009,48s23.009-10.321,23.009-23.009S37.696,1.982,25.009,1.982z M34.748,35.333c-0.289,0.434-0.765,0.668-1.25,0.668c-0.286,0-0.575-0.081-0.831-0.252C30.194,34.1,26,33,22.5,33.001 c-3.714,0.002-6.498,0.914-6.526,0.923c-0.784,0.266-1.635-0.162-1.897-0.948s0.163-1.636,0.949-1.897 c0.132-0.044,3.279-1.075,7.474-1.077C26,30,30.868,30.944,34.332,33.253C35.022,33.713,35.208,34.644,34.748,35.333z M37.74,29.193 c-0.325,0.522-0.886,0.809-1.459,0.809c-0.31,0-0.624-0.083-0.906-0.26c-4.484-2.794-9.092-3.385-13.062-3.35 c-4.482,0.04-8.066,0.895-8.127,0.913c-0.907,0.258-1.861-0.272-2.12-1.183c-0.259-0.913,0.272-1.862,1.184-2.12 c0.277-0.079,3.854-0.959,8.751-1c4.465-0.037,10.029,0.61,15.191,3.826C37.995,27.328,38.242,28.388,37.74,29.193z M40.725,22.013 C40.352,22.647,39.684,23,38.998,23c-0.344,0-0.692-0.089-1.011-0.275c-5.226-3.068-11.58-3.719-15.99-3.725 c-0.021,0-0.042,0-0.063,0c-5.333,0-9.44,0.938-9.481,0.948c-1.078,0.247-2.151-0.419-2.401-1.495 c-0.25-1.075,0.417-2.149,1.492-2.4C11.729,16.01,16.117,15,21.934,15c0.023,0,0.046,0,0.069,0 c4.905,0.007,12.011,0.753,18.01,4.275C40.965,19.835,41.284,21.061,40.725,22.013z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <button
+            id="enter-button"
+            class="sm:hidden mt-20 background-blur z-[1000] rounded-full p-5 text-3xl border border-white border-opacity-50"
+            >Enter</button
+          >
+        </div>
+      </main>
+      <!-- <Gallery /> -->
+      <Footer />
+      <script>
+        declare global {
+          interface Window {
+            netlifyIdentity: any;
           }
-          });
-
-				blurElement?.addEventListener('mouseleave', function() {
-          if (gridElement) {
-            gridElement.style.setProperty('--mt-value', '0');
-          }
-          gridButtons.forEach(function(button) {
-            button.classList.add('no-interaction');
-
-            // Add a 'touchstart' event listener to the button
-            button.addEventListener('touchstart', function(event) {
-              // If the 'no-interaction' class is present on the button, prevent the touchstart event from firing
-              if (button.classList.contains('no-interaction')) {
-              event.preventDefault();
-              }
-            });
-          });
-				});
-        function activateBlurAndHideButton() {
-          // Trigger the hover effect on the blur element
-          blurElement?.classList.add('hovered');
-          // Hide the Enter button
-          enterButton?.classList.add('hidden');
         }
 
-        enterButton?.addEventListener('click', activateBlurAndHideButton);
-			})();
-		</script>
-	</body>
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", (user: any) => {
+            if (!user) {
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
+            }
+          });
+        }
+
+        (function () {
+          let gridElement = document.querySelector("#grid") as HTMLElement;
+          var gridButtons = gridElement.querySelectorAll("button");
+          let enterButton = document.getElementById("enter-button");
+          let blurElement = document.getElementById("blur");
+
+          blurElement?.addEventListener("mouseenter", function () {
+            if (gridElement && window.innerWidth <= 767) {
+              // 768px is a common breakpoint for mobile devices
+              gridElement.style.setProperty("--mt-value", "15%");
+            } else if (gridElement) {
+              gridElement.style.setProperty("--mt-value", "8%");
+            }
+          });
+
+          blurElement?.addEventListener("mouseleave", function () {
+            if (gridElement) {
+              gridElement.style.setProperty("--mt-value", "0");
+            }
+            gridButtons.forEach(function (button) {
+              button.classList.add("no-interaction");
+
+              // Add a 'touchstart' event listener to the button
+              button.addEventListener("touchstart", function (event) {
+                // If the 'no-interaction' class is present on the button, prevent the touchstart event from firing
+                if (button.classList.contains("no-interaction")) {
+                  event.preventDefault();
+                }
+              });
+            });
+          });
+          function activateBlurAndHideButton() {
+            // Trigger the hover effect on the blur element
+            blurElement?.classList.add("hovered");
+            // Hide the Enter button
+            enterButton?.classList.add("hidden");
+          }
+
+          enterButton?.addEventListener("click", activateBlurAndHideButton);
+        })();
+      </script>
+    </Layout>
+    <style>
+      .background-blur {
+        backdrop-filter: blur(10px);
+      }
+
+      .vic-font {
+        font-family: "Rock Salt", sans-serif;
+      }
+
+      .special-font {
+        font-family: "Permanent Marker", sans-serif;
+      }
+
+      .overlay {
+        background: linear-gradient(
+          to bottom,
+          rgba(17, 17, 17, 0.4),
+          rgba(0, 0, 0, 0.4)
+        );
+        transition: background 0.5s ease;
+      }
+
+      .gradient-blur {
+        transition: 0.5s cubic-bezier(0, 1.04, 0.65, 0.96);
+        height: 40vh;
+      }
+      @keyframes blur {
+        to {
+          backdrop-filter: blur(30px);
+        }
+      }
+      .hovered,
+      .gradient-blur:hover {
+        box-shadow: 0 0 3rem 0 rgba(0, 0, 1, 0.5);
+        transition: 0.5s cubic-bezier(0.52, 0.19, 0.39, 0.95);
+        backdrop-filter: blur(0px);
+        animation: blur 0.5s 0.5s forwards;
+      }
+
+      div h1 {
+        transition: font-size 0.3s ease-in-out;
+      }
+
+      .hovered div h1,
+      #blur:hover div h1 {
+        font-size: 3rem;
+      }
+
+      #drawer {
+        height: 0.5rem;
+        padding: auto;
+        opacity: 0;
+        transition: 0.2s ease-in-out;
+      }
+
+      .hovered #drawer,
+      #blur:hover #drawer {
+        height: 2.5rem;
+        transition: 0.2s ease-in-out;
+        opacity: 1;
+      }
+
+      #grid {
+        margin-top: 0;
+        transition: margin-top 0.3s ease-in-out;
+      }
+      #grid a {
+        border: 1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Assuming 4 columns on large screens */
+      @media (min-width: 768px) {
+        #grid a:nth-child(n):not(:last-child) {
+          border-right: none;
+        }
+        .hovered,
+        .margins:hover {
+          height: calc(100% - 2rem);
+          width: calc(100% - 2rem);
+        }
+        #blur:hover #grid {
+          margin-top: 10%;
+        }
+
+        .hovered,
+        #blur:hover {
+          padding: 5rem;
+        }
+      }
+      /* Assuming 2 columns on small screens */
+      @media (max-width: 767px) {
+        #grid a:nth-child(1),
+        #grid a:nth-child(3) {
+          border-right: none;
+        }
+        #grid a:nth-child(1),
+        #grid a:nth-child(2) {
+          border-bottom: none;
+        }
+        .hovered {
+          height: calc(100%);
+          width: calc(100%);
+        }
+
+        .hovered #grid {
+          margin-top: 15%;
+        }
+
+        button.no-interaction {
+          pointer-events: none;
+        }
+
+        .hovered {
+          padding: 2.5rem;
+          margin-top: 0;
+        }
+
+        #blur {
+          pointer-events: none;
+        }
+
+        .hovered {
+          pointer-events: all !important;
+        }
+      }
+    </style>
+  </body>
 </html>
-<style>
-  .background-blur {
-    backdrop-filter: blur(10px);
-  }
-
-	.vic-font {
-		font-family: 'Rock Salt', sans-serif;
-	}
-
-	.special-font {
-		font-family: 'Permanent Marker', sans-serif;
-	}
-
-	.overlay {
-		background: linear-gradient(to bottom, rgba(17, 17, 17, 0.4), rgba(0,0,0,0.4));
-		transition: background 0.5s ease;
-	}
-
-	.gradient-blur {
-		transition: 0.5s cubic-bezier(0,1.04,.65,.96);
-		height: 40vh;
-	}
-	@keyframes blur {
-		to {
-			backdrop-filter: blur(30px);
-		}
-  }
-  .hovered,
-	.gradient-blur:hover {
-		box-shadow: 0 0 3rem 0 rgba(0, 0, 1, 0.5);
-		transition: 0.5s cubic-bezier(.52,.19,.39,.95);
-		backdrop-filter: blur(0px);
-		animation: blur 0.5s 0.5s forwards;
-	}
-	
-
-	div h1 {
-		transition: font-size 0.3s ease-in-out;
-	}
-
-  .hovered div h1,
-	#blur:hover div h1 {
-		font-size: 3rem;
-	}
-
-	#drawer {
-    height: 0.5rem;
-    padding: auto;
-		opacity: 0;
-		transition: 0.2s ease-in-out;
-	}
-
-  .hovered #drawer,
-  #blur:hover #drawer {
-    height: 2.5rem;
-		transition: 0.2s ease-in-out;
-		opacity: 1;
-	}
-
-	#grid {
-		margin-top: 0;
-		transition: margin-top 0.3s ease-in-out;
-	}
-	#grid a {
-		border: 1px solid white;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	/* Assuming 4 columns on large screens */
-	@media (min-width: 768px) {
-		#grid a:nth-child(n):not(:last-child) {
-			border-right: none;
-    }
-    .hovered,
-		.margins:hover {
-			height: calc(100% - 2rem);
-			width: calc(100% - 2rem);
-    }
-		#blur:hover #grid {
-			margin-top: 10%;
-    }
-
-    .hovered,
-    #blur:hover {
-      padding: 5rem;
-    }
-	}
-	/* Assuming 2 columns on small screens */
-	@media (max-width: 767px) {
-		#grid a:nth-child(1),
-		#grid a:nth-child(3) {
-			border-right: none;
-		}
-		#grid a:nth-child(1),
-		#grid a:nth-child(2) {
-		border-bottom: none;
-    }
-    .hovered {
-			height: calc(100%);
-			width: calc(100%);
-    }
-
-    .hovered #grid {
-			margin-top: 15%;
-		}
-
-
-		button.no-interaction {
-			pointer-events: none;
-    }
-
-    .hovered {
-      padding: 2.5rem;
-      margin-top: 0;
-    }
-
-    #blur {
-			pointer-events: none;
-    }
-
-    .hovered {
-      pointer-events: all !important;
-    }
-	}
-</style>
