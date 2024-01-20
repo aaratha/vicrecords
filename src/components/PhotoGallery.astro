@@ -1,12 +1,7 @@
 ---
-import BaseHead from "./BaseHead.astro";
-import Header from "./Header.astro";
-import Footer from "./Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
-import FormattedDate from "./FormattedDate.astro";
 
-const posts = (await getCollection("playlists")).sort(
+const posts = (await getCollection("photo-gallery")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
@@ -14,7 +9,6 @@ const posts = (await getCollection("playlists")).sort(
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
       main {
         width: 100%;
@@ -84,7 +78,6 @@ const posts = (await getCollection("playlists")).sort(
     </style>
   </head>
   <body class="bg-black">
-    <Header />
     <main class="mt-10">
       <section>
         <ul>
@@ -93,9 +86,6 @@ const posts = (await getCollection("playlists")).sort(
               <li class="">
                 <a href={`/playlists/${post.slug}/`}>
                   <h4 class="title">{post.data.title}</h4>
-                  <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
                   <iframe
                     style="border-radius:12px"
                     src={`${post.data.playlistURL.replace("spotify.com/playlist", "spotify.com/embed/playlist")}?utm_source=generator`}
@@ -112,6 +102,5 @@ const posts = (await getCollection("playlists")).sort(
         </ul>
       </section>
     </main>
-    <Footer />
   </body>
 </html>

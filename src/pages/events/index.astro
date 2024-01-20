@@ -5,6 +5,7 @@ import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
+import PhotoGallery from "../../components/PhotoGallery.astro";
 
 const posts = (await getCollection("events")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -86,9 +87,10 @@ const posts = (await getCollection("events")).sort(
   </head>
   <body class="bg-black">
     <Header />
-    <main class="flex flex-col mt-10">
-      <div class="flex flex-row border-b mb-10">
+    <main class="flex flex-col mt-10 w-full">
+      <div class="flex flex-row border-b mb-10 border-white">
         <h1 class="">Gallery</h1>
+        <PhotoGallery />
       </div>
       <section>
         <ul>
