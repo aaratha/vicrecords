@@ -8,7 +8,7 @@ const posts = (await getCollection("photo-gallery")).sort(
 type Post = {
   slug: string;
   data: {
-    event_type: string;
+    type: string;
     imgSrc: string;
     description: string;
   };
@@ -27,6 +27,11 @@ export async function getStaticPaths() {
   });
 }
 
+const eventTypes = ["Open Mics", "Studio Sessions (On Campus)", "General Member Socials", "Studio Sessions (Off Campus)"];
+  const groupedPosts = eventTypes.map(eventType => ({
+    eventType,
+    posts: posts.filter(post => post.data.type === eventType),
+  }));
 
 ---
 
@@ -104,14 +109,19 @@ export async function getStaticPaths() {
   <body class="bg-black">
     <h1>Gallery</h1>
     <main class="mt-10 border-b">
-      <section>
-        {posts.map((post) => (
-          <li>
-            <img src={post.data.imgSrc} alt={post.data.description} />
-            <p>{post.data.event_type}</p>
-          </li>
-        ))}
-      </section>
+      {groupedPosts.map(({ eventType, posts }) => (
+        <section>
+          <h2>{eventType}</h2>
+          <ul>
+            {posts.map((post) => (
+              <li>
+                <img src={post.data.imgSrc} alt={post.data.description} />
+                <p>{post.data.type}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </main>
   </body>
 </html>
