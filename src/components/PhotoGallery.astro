@@ -5,18 +5,7 @@ const posts = (await getCollection("photo-gallery")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-export async function getStaticPaths() {
-  return posts.map((post, index) => {
-    const params = {
-      index,
-    };
 
-    return {
-      params,
-      props: post,
-    };
-  });
-}
 
 const eventTypes = ["Open Mics", "Studio Sessions (On Campus)", "General Member Socials", "Studio Sessions (Off Campus)"];
   const groupedPosts = eventTypes.map(eventType => ({
@@ -107,7 +96,6 @@ const eventTypes = ["Open Mics", "Studio Sessions (On Campus)", "General Member 
             {posts.map((post) => (
               <li>
                 <img src={post.data.imgSrc} alt={post.data.description} />
-                <p>{post.data.type}</p>
               </li>
             ))}
           </ul>
