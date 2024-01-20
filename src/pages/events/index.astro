@@ -88,7 +88,6 @@ const posts = (await getCollection("events")).sort(
   <body class="bg-black">
     <Header />
     <main class="flex flex-col mt-10 w-full">
-      <PhotoGallery />
       <section class="mt-10">
         <ul>
           {
@@ -111,6 +110,7 @@ const posts = (await getCollection("events")).sort(
           }
         </ul>
       </section>
+      <PhotoGallery />
     </main>
     <Footer />
   </body>

@@ -5,14 +5,16 @@ const posts = (await getCollection("photo-gallery")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-
-
-const eventTypes = ["Open Mics", "Studio Sessions (On Campus)", "General Member Socials", "Studio Sessions (Off Campus)"];
-  const groupedPosts = eventTypes.map(eventType => ({
-    eventType,
-    posts: posts.filter(post => post.data.type === eventType),
-  }));
-
+const eventTypes = [
+  "Open Mics",
+  "Studio Sessions (On Campus)",
+  "General Member Socials",
+  "Studio Sessions (Off Campus)",
+];
+const groupedPosts = eventTypes.map((eventType) => ({
+  eventType,
+  posts: posts.filter((post) => post.data.type === eventType),
+}));
 ---
 
 <!doctype html>
@@ -87,20 +89,23 @@ const eventTypes = ["Open Mics", "Studio Sessions (On Campus)", "General Member 
     </style>
   </head>
   <body class="bg-black">
-    <h1>Gallery</h1>
-    <main class="mt-10 border-b">
-      {groupedPosts.map(({ eventType, posts }) => (
-        <section>
-          <h2>{eventType}</h2>
-          <ul>
-            {posts.map((post) => (
-              <li>
-                <img src={post.data.imgSrc} alt={post.data.description} />
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
+    <h1 class="border-t pl-4 pt-4">Gallery</h1>
+    <main class="flex flex-col">
+      <!-- "border !w-[96vw] rounded-2xl overflow-x-scroll max-w-screen"> -->
+      {
+        groupedPosts.map(({ eventType, posts }) => (
+          <section class="overflow-x-scoll ">
+            <h3 class="ml-10">{eventType}</h3>
+            <ul class="flex flex-row ">
+              {posts.map((post) => (
+                <li>
+                  <img src={post.data.imgSrc} alt={post.data.description} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
     </main>
   </body>
 </html>
