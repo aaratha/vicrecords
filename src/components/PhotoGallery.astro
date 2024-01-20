@@ -1,18 +1,9 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 
 const posts = (await getCollection("photo-gallery")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
-type Post = {
-  slug: string;
-  data: {
-    type: string;
-    imgSrc: string;
-    description: string;
-  };
-};
 
 export async function getStaticPaths() {
   return posts.map((post, index) => {
