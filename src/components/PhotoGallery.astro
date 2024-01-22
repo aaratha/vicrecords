@@ -78,8 +78,8 @@ const groupedPosts = eventTypes.map((eventType) => ({
         groupedPosts.length > 0 ? (
           groupedPosts.map(({ eventType, posts }) => (
           <section class="overflow-x-none overflow-y-none border-b border-white border-opacity-50 bg-black hide">
-            <h3 class="ml-10 pt-1 text-3xl sm:text-5xl" onclick="toggleHidden(event)">{eventType}</h3>
-            <ul class="pt-1 flex flex-row overflow-x-scroll overflow-y-hidden whitespace-nowrap pl-5">
+            <h3 class="ml-10 pt-1 text-2xl sm:text-5xl" onclick="toggleHidden(event)">{eventType}</h3>
+            <ul class="pt-3 flex flex-row overflow-x-scroll overflow-y-hidden whitespace-nowrap pl-5">
               {posts.map((post) => (
                 <li class="flex-shrink-0 min-width-[content-size] mr-5 flex flex-col">
                     <img src={post.data.imgSrc} alt={post.data.credit} style="max-width: 100%; height: 500px;"/>
