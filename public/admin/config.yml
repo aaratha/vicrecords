@@ -49,7 +49,7 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Credit", name: "credit", widget: "string"}
       - {label: "Publish Date", name: "pubDate", widget: "datetime"}
       - {label: "Image Source", name: "imgSrc", widget: "image"}
       - {label: "Event Type", name: 'type', widget: "select", options: ["Open Mics", "Studio Sessions (On Campus)", "General Member Socials", "Studio Sessions (Off Campus)"]}
