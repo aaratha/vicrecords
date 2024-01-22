@@ -91,20 +91,23 @@ const groupedPosts = eventTypes.map((eventType) => ({
   <body class="bg-black">
     <h1 class="border-t pl-4 pt-4">Gallery</h1>
     <main class="flex flex-col">
-      <!-- "border !w-[96vw] rounded-2xl overflow-x-scroll max-w-screen"> -->
       {
-        groupedPosts.map(({ eventType, posts }) => (
-          <section class="overflow-x-scoll ">
-            <h3 class="ml-10">{eventType}</h3>
-            <ul class="flex flex-row ">
-              {posts.map((post) => (
-                <li>
-                  <img src={post.data.imgSrc} alt={post.data.credit} />
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))
+        groupedPosts.length > 0 ? (
+          groupedPosts.map(({ eventType, posts }) => (
+            <section class="overflow-x-scoll ">
+              <h3 class="ml-10">{eventType}</h3>
+              <ul class="flex flex-row ">
+                {posts.map((post) => (
+                  <li>
+                    <img src={post.data.imgSrc} alt={post.data.credit} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))
+        ) : (
+          <p>No posts available.</p>
+        )
       }
     </main>
   </body>
