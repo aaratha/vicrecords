@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import react from '@astrojs/react';
 
 const posts = (await getCollection("photo-gallery")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -23,92 +24,83 @@ const groupedPosts = eventTypes.map((eventType) => ({
     <style>
       main {
         width: 100%;
+        transition: all 0.5s ease-in-out;
       }
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-        padding-left: 5vw;
-        padding-right: 5vw;
+      .hide {
+        height: 3.7rem;
+        transition: all 0.5s ease-in-out;
       }
-      ul li {
-        width: calc(50% - 1rem);
-        margin-bottom: 1rem;
+      section {
+        height: 41rem;
+        transition: all 0.5s ease-in-out;
       }
-      ul li * {
-        text-decoration: none;
-        transition: 0.2s ease;
+      *::-webkit-scrollbar {
+				width: 12px;
+				height: 30px;
+			}
+
+			*::-webkit-scrollbar-track {
+				background: rgb(0, 0, 0);
+				border-left: 1px solid white;
+			}
+
+			*::-webkit-scrollbar-thumb {
+				background-color: rgb(255, 255, 255);
+				border-left: 1px solid rgb(255, 255, 255);
+			}
+      /* This applies to the scrollbar track */
+      ul::-webkit-scrollbar {
+        width: 30px;
+        height: 30px;
       }
-      ul li img {
-        margin-bottom: 1rem;
-        border-radius: 0px;
-        &:hover {
-        }
+
+      ul::-webkit-scrollbar-track {
+        background: rgb(0, 0, 0);
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        border-left: none;
       }
-      ul li a {
-        display: block;
-      }
-      .title {
-        margin: 0;
-        color: rgb(255, 255, 255);
-        line-height: 1;
-      }
-      .date {
-        margin: 0;
-        color: rgb(255, 56, 56);
-      }
-      ul li a:hover .title {
-        color: rgb(255, 56, 56);
-      }
-      ul li a:hover .date {
-        color: rgb(255, 255, 255);
-      }
-      ul iframe {
-        margin-top: 1rem;
-      }
-      ul iframe:hover {
-        box-shadow: 0px 0px 0px 5px rgb(255, 255, 255);
-      }
-      @media (max-width: 720px) {
-        ul {
-          gap: 0.5em;
-        }
-        ul li {
-          width: 100%;
-          text-align: center;
-          margin-left: 10vw;
-          margin-right: 10vw;
-        }
+
+      ul::-webkit-scrollbar-thumb {
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(255, 255, 255);
       }
     </style>
   </head>
   <body class="bg-black">
-    <h1 class="border-t pl-4 pt-4">Gallery</h1>
+    <h1 class="border-b pl-4 pt-4 border-opacity-50 border-white">Gallery</h1>
     <main class="flex flex-col">
       {
         groupedPosts.length > 0 ? (
           groupedPosts.map(({ eventType, posts }) => (
-            <section class="overflow-x-scoll ">
-              <h3 class="ml-10">{eventType}</h3>
-              <ul class="flex flex-row ">
-                {posts.map((post) => (
-                  <li>
-                    <img src={post.data.imgSrc} alt={post.data.credit} />
-                  </li>
-                ))}
-              </ul>
-            </section>
+          <section class="overflow-x-none overflow-y-none border-b border-white border-opacity-50 bg-black hide">
+            <h3 class="ml-10 pt-1" onclick="toggleHidden(event)">{eventType}</h3>
+            <ul class="pt-1 flex flex-row overflow-x-scroll overflow-y-hidden whitespace-nowrap pl-5">
+              {posts.map((post) => (
+                <li class="flex-shrink-0 min-width-[content-size] mr-5 flex flex-col">
+                    <img src={post.data.imgSrc} alt={post.data.credit} style="max-width: 100%; height: 500px;"/>
+                    <p class=" text-center">Photo Credit: {post.data.credit}</p>
+                </li>
+              ))}
+            </ul>
+            <script>
+              function toggleHidden(event) {
+                let parentSection = event.target;
+                while (parentSection && parentSection.nodeName !== 'SECTION') {
+                  parentSection = parentSection.parentNode;
+                }
+                if (parentSection) {
+                  parentSection.classList.toggle("hide");
+                }
+              }
+            </script>
+          </section>
           ))
         ) : (
           <p>No posts available.</p>
         )
       }
     </main>
+    <section class="h-[0rem] bg-black"></section>
   </body>
 </html>
