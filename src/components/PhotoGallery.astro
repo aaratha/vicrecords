@@ -16,7 +16,6 @@ const groupedPosts = eventTypes.map((eventType) => ({
   eventType,
   posts: posts.filter((post) => post.data.type === eventType),
 }));
-//test
 ---
 
 <!doctype html>
@@ -85,7 +84,7 @@ const groupedPosts = eventTypes.map((eventType) => ({
               ))}
             </ul>
             <script>
-              function toggleHidden(event) {
+              function toggleHidden(event: { target: any; }) {
                 let parentSection = event.target;
                 while (parentSection && parentSection.nodeName !== 'SECTION') {
                   parentSection = parentSection.parentNode;
