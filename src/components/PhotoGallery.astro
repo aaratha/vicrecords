@@ -29,6 +29,10 @@ const groupedPosts = eventTypes.map((eventType) => ({
       .hide {
         height: 3.7rem;
         transition: all 0.5s ease-in-out;
+
+        @media (max-width: 640px) {
+          height: 3rem;
+        }
       }
       section {
         height: 41rem;
@@ -74,7 +78,7 @@ const groupedPosts = eventTypes.map((eventType) => ({
         groupedPosts.length > 0 ? (
           groupedPosts.map(({ eventType, posts }) => (
           <section class="overflow-x-none overflow-y-none border-b border-white border-opacity-50 bg-black hide">
-            <h3 class="ml-10 pt-1" onclick="toggleHidden(event)">{eventType}</h3>
+            <h3 class="ml-10 pt-1 text-3xl sm:text-5xl" onclick="toggleHidden(event)">{eventType}</h3>
             <ul class="pt-1 flex flex-row overflow-x-scroll overflow-y-hidden whitespace-nowrap pl-5">
               {posts.map((post) => (
                 <li class="flex-shrink-0 min-width-[content-size] mr-5 flex flex-col">
