@@ -41,7 +41,8 @@ import Layout from "../layouts/Layout.astro";
             class="hover:w-full gradient-blur z-30 sm:w-[35vw] sm:min-w-[30rem] flex flex-col p-10 sm:flex-nowrap sm:rounded-xl items-center box-border margins"
           >
             <div class="flex flex-col w-full">
-              <h1 id="top" class="top-margin w-full border-t border-b border-white text-white font-serif text-7xl z-30 sm:text-8xl md:text-8xl"
+              <h1
+                class="top-margin w-full border-t border-b border-white text-white font-serif text-7xl z-30 sm:text-8xl md:text-8xl"
               >
                 Vic
               </h1>
@@ -157,7 +158,6 @@ import Layout from "../layouts/Layout.astro";
           var gridButtons = gridElement.querySelectorAll("button");
           let enterButton = document.getElementById("enter-button");
           let blurElement = document.getElementById("blur");
-          let topElement = document.getElementById("top");
 
           blurElement?.addEventListener("mouseenter", function () {
             if (gridElement && window.innerWidth <= 767) {
@@ -189,8 +189,8 @@ import Layout from "../layouts/Layout.astro";
             blurElement?.classList.add("hovered");
             // Hide the Enter button
             enterButton?.classList.add("fade");
-            topElement?.classList.add("top-margin")
           }
+
           enterButton?.addEventListener("click", activateBlurAndHideButton);
         })();
       </script>
@@ -206,6 +206,7 @@ import Layout from "../layouts/Layout.astro";
         height: 0;
         padding: 0;
         opacity: 0;
+        display: none;
         transition: 0.2s ease-in-out;
         margin: none;
       }
@@ -283,12 +284,6 @@ import Layout from "../layouts/Layout.astro";
 
       /* Assuming 4 columns on large screens */
       @media (min-width: 768px) {
-        #top {
-          margin-top: 0;
-        }
-        .top-margin {
-          margin-top: 10rem;
-        }
         #grid a:nth-child(n):not(:last-child) {
           border-right: none;
         }
