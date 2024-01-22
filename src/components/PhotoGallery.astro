@@ -84,7 +84,8 @@ const groupedPosts = eventTypes.map((eventType) => ({
               ))}
             </ul>
             <script>
-              function toggleHidden(event: { target: any; }) {
+              // @ts-ignore
+              function toggleHidden(event) {
                 let parentSection = event.target;
                 while (parentSection && parentSection.nodeName !== 'SECTION') {
                   parentSection = parentSection.parentNode;
