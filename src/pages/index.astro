@@ -38,30 +38,34 @@ import Layout from "../layouts/Layout.astro";
           </div>
           <div
             id="blur"
-            class="hover:w-full gradient-blur z-30 sm:w-[35vw] sm:min-w-[30rem] flex flex-col p-10 sm:flex-nowrap sm:rounded-xl items-center box-border margins"
+            class="hover:w-full gradient-blur z-30 sm:w-[35vw] sm:min-w-[28rem] flex flex-col p-10 sm:flex-nowrap sm:rounded-xl items-center box-border margins"
           >
             <div class="flex flex-col w-full">
               <h1
-                class="top-margin w-full border-t border-b border-white text-white font-serif text-7xl z-30 sm:text-8xl md:text-8xl"
+                class="pl-2 w-full border-t border-b border-white text-white font-serif text-7xl z-30 sm:text-8xl md:text-8xl"
               >
                 Vic
               </h1>
               <h1
-                class="mb-0 pb-0 text-right text-7xl z-30 sm:text-8xl md:text-8xl font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown"
+                id='records' class="pl-2 mb-0 pb-0 text-right text-7xl z-30 sm:text-8xl md:text-8xl font-serif bg-clip-text text-transparent text-white bg-gradient-to-br from-amber-500 via-red-500 to-brown border-t"
               >
                 Records
               </h1>
+              <div id="drawer2" class="container w-full z-[29]">
+                <div class="border-t border-b absolute w-full bottom-[5.9rem] h-[1.1rem] " />
+                <div class="border-t border-b absolute w-full bottom-[1rem] h-[1.1rem] " />
+              </div>
               <div class="w-full border-t border-white z-30"></div>
               <div
                 id="drawer"
-                class="pt-1 sm:pt-0 mt-2 sm:mt-5 font-thin flex flex-row justify-center text-lg sm:text-3xl text-center text-white bg-white bg-opacity-10"
+                class=" sm:pt-0 mt-2 sm:mt-5 font-thin flex flex-row justify-center text-lg sm:text-xl text-center text-white bg-white bg-opacity-10 items-center"
               >
                 AT UNIVERSITY OF TORONTO
               </div>
             </div>
             <div
               id="grid"
-              class="z-100 grid grid-cols-2 sm:grid-cols-4 w-full h-[50%]"
+              class="z-100 grid grid-cols-2 sm:grid-cols-4 w-full "
             >
               <a
                 href="/events"
@@ -84,7 +88,7 @@ import Layout from "../layouts/Layout.astro";
                 target="_blank">Links</a
               >
             </div>
-            <div id="drawer" class="mt-20 flex flex-row opacity-0">
+            <div id="drawer" class="mt-10 xl:mt-24 flex flex-row opacity-0">
               <a
                 href="https://instagram.com/vicrecords"
                 target="_blank"
@@ -110,7 +114,6 @@ import Layout from "../layouts/Layout.astro";
                 target="_blank"
                 class="hover:scale-105 transition-all"
               >
-                <span class="sr-only">Follow Astro on Twitter</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -164,7 +167,7 @@ import Layout from "../layouts/Layout.astro";
               // 768px is a common breakpoint for mobile devices
               gridElement.style.setProperty("--mt-value", "15%");
             } else if (gridElement) {
-              gridElement.style.setProperty("--mt-value", "8%");
+              gridElement.style.setProperty("--mt-value", "0%");
             }
           });
 
@@ -196,6 +199,24 @@ import Layout from "../layouts/Layout.astro";
       </script>
     </Layout>
     <style>
+      #records {
+        margin-top: 0;
+        text-align: left;
+        transition: 0.2s ease-in-out;
+      }
+
+      .hovered #records,
+      #blur:hover #records {
+        transition: 0.4s ease-in-out;
+        opacity: 1;
+        margin-top: 1.5rem;
+        text-align: left;
+      }
+
+      .container {
+        position: relative;
+        /* other styles */
+      }
       #enter-button {
         transition: opacity 0.5s ease-in-out;
         position: absolute;
@@ -245,7 +266,7 @@ import Layout from "../layouts/Layout.astro";
         box-shadow: 0 0 3rem 0 rgba(0, 0, 1, 1);
         transition: 0.5s cubic-bezier(0.52, 0.19, 0.39, 0.95);
         backdrop-filter: blur(0px);
-        animation: blur 0.5s 0.4s forwards;
+        animation: blur 0.3s 0.45s forwards;
       }
 
       div h1 {
@@ -258,7 +279,7 @@ import Layout from "../layouts/Layout.astro";
       }
 
       #drawer {
-        height: 0.5rem;
+        height: 0rem;
         padding: auto;
         opacity: 0;
         transition: 0.2s ease-in-out;
@@ -267,6 +288,18 @@ import Layout from "../layouts/Layout.astro";
       .hovered #drawer,
       #blur:hover #drawer {
         height: 2.5rem;
+        transition: 0.2s ease-in-out;
+        opacity: 1;
+      }
+
+      #drawer2 {
+        opacity: 0;
+        transition: 0.2s ease-in-out;
+        box-sizing: border-box;
+      }
+
+      .hovered #drawer2,
+      #blur:hover #drawer2 {
         transition: 0.2s ease-in-out;
         opacity: 1;
       }
@@ -284,16 +317,18 @@ import Layout from "../layouts/Layout.astro";
 
       /* Assuming 4 columns on large screens */
       @media (min-width: 768px) {
+        
         #grid a:nth-child(n):not(:last-child) {
           border-right: none;
         }
         .hovered,
         .margins:hover {
-          height: calc(100% - 2rem);
-          width: calc(100% - 2rem);
+          height: calc(100% - 3rem);
+          width: calc(100% - 3rem);
         }
         #blur:hover #grid {
-          margin-top: 10%;
+          margin-top: 1.5rem;
+          height: 30vh;
         }
 
         .hovered,
@@ -301,6 +336,7 @@ import Layout from "../layouts/Layout.astro";
           padding: 5rem;
         }
       }
+      
       /* Assuming 2 columns on small screens */
       @media (max-width: 767px) {
         #grid a:nth-child(1),
@@ -318,6 +354,7 @@ import Layout from "../layouts/Layout.astro";
 
         .hovered #grid {
           margin-top: 15%;
+          height: 40vh;
         }
 
         button.no-interaction {
@@ -331,6 +368,10 @@ import Layout from "../layouts/Layout.astro";
 
         #blur {
           pointer-events: none;
+        }
+        
+        .hovered #blur {
+          margin-top: 0rem;
         }
 
         .hovered {
