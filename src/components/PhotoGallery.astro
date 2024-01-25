@@ -27,16 +27,15 @@ const groupedPosts = eventTypes.map((eventType) => ({
         transition: all 0.5s ease-in-out;
       }
       .hide {
-        height: 3.7rem;
+        height: 4.2rem;
         transition: all 0.5s ease-in-out;
 
         @media (max-width: 640px) {
-          height: 3rem;
+          height: 3.5rem;
         }
       }
       section {
-        height: 41rem;
-        transition: all 0.5s ease-in-out;
+        transition: all 0.3s ease-in-out;
       }
       *::-webkit-scrollbar {
 				width: 12px;
@@ -69,6 +68,27 @@ const groupedPosts = eventTypes.map((eventType) => ({
         background-color: rgb(255, 255, 255);
         border: 1px solid rgb(255, 255, 255);
       }
+
+      img {
+        max-width: 100%;
+        height: 500px;
+      }
+
+      .dropdownSVG {
+        transform: rotate(90deg);
+        transition: all 0.3s ease-in-out;
+        margin-right: 0.5rem;
+      }
+
+      .dropdownSVG.down {
+        transform: rotate(180deg);
+      }
+
+      @media (max-width: 600px) {
+        img {
+          height: 300px;
+        }
+      }
     </style>
   </head>
   <body class="bg-black">
@@ -77,12 +97,16 @@ const groupedPosts = eventTypes.map((eventType) => ({
       {
         groupedPosts.length > 0 ? (
           groupedPosts.map(({ eventType, posts }) => (
-          <section class="overflow-x-none overflow-y-none border-b border-white border-opacity-50 bg-black hide">
-            <h3 class="ml-10 pt-2 text-2xl sm:text-5xl" onclick="toggleHidden(event)">{eventType}</h3>
-            <ul class="pt-3 flex flex-row overflow-x-scroll overflow-y-hidden whitespace-nowrap pl-5">
+          <section class="overflow-x-none overflow-y-none border-b border-white border-opacity-50 bg-black hide sm:h-[42rem] h-[30rem]">
+            <h3 class="ml-10 pt-[0.85rem] text-2xl sm:text-4xl flex flex-row" onclick="toggleHidden(event)">
+              <svg id="svg" fill="#ffffff" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" class="dropdownSVG" width="20"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>triangle</title> <path d="M31.082 27.5l-13.999-24.249c-0.237-0.352-0.633-0.58-1.083-0.58s-0.846 0.228-1.080 0.575l-0.003 0.005-14 24.249c-0.105 0.179-0.167 0.395-0.167 0.625 0 0.69 0.56 1.25 1.25 1.25 0 0 0 0 0 0h28c0.69-0 1.249-0.56 1.249-1.25 0-0.23-0.062-0.446-0.171-0.631l0.003 0.006zM4.165 26.875l11.835-20.499 11.834 20.499z"></path> </g></svg>
+
+              {eventType}
+            </h3>
+            <ul class="pt-4 flex flex-row overflow-x-scroll overflow-y-hidden whitespace-nowrap pl-5">
               {posts.map((post) => (
                 <li class="flex-shrink-0 min-width-[content-size] mr-5 flex flex-col">
-                    <img src={post.data.imgSrc} alt={post.data.credit} style="max-width: 100%; height: 500px;"/>
+                    <img src={post.data.imgSrc} alt={post.data.credit} />
                     <p class=" text-center">Photo Credit: {post.data.credit}</p>
                 </li>
               ))}
@@ -91,11 +115,14 @@ const groupedPosts = eventTypes.map((eventType) => ({
               // @ts-ignore
               function toggleHidden(event) {
                 let parentSection = event.target;
+                let svg = parentSection.querySelector("#svg");
+
                 while (parentSection && parentSection.nodeName !== 'SECTION') {
                   parentSection = parentSection.parentNode;
                 }
                 if (parentSection) {
                   parentSection.classList.toggle("hide");
+                  svg?.classList.toggle('down');
                 }
               }
             </script>
@@ -106,6 +133,6 @@ const groupedPosts = eventTypes.map((eventType) => ({
         )
       }
     </main>
-    <section class="h-[0rem] bg-black"></section>
+    <section class="h-[40rem] bg-black"></section>
   </body>
 </html>
