@@ -9,8 +9,8 @@ const posts = (await getCollection("photo-gallery")).sort(
 const eventTypes = [
   "Open Mics",
   "Studio Sessions (On Campus)",
-  "General Member Socials",
   "Studio Sessions (Off Campus)",
+  "General Member Socials"
 ];
 const groupedPosts = eventTypes.map((eventType) => ({
   eventType,
