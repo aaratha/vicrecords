@@ -7,15 +7,75 @@ const posts = (await getCollection("photo-gallery")).sort(
 );
 
 
-const importedImages = Array.from({length: 42}, (_, i) => ({
+const on_campus_ruth_ann = Array.from({length: 42}, (_, i) => ({
   id: `on_campus_ruth_ann${i + 1}`,
   slug: `on_campus_ruth_ann${i + 1}`,
   body: '',
   collection: 'photo-gallery',
   data: {
-    imgSrc: `/assets/on_campus_ruth_ann${i + 1}.JPG`,
+    imgSrc: `public/assets/on_campus_ruth_ann${i + 1}.JPG`,
     credit: 'Ruth Ann',
-    type: 'On Campus' // Change this to the appropriate event type
+    type: 'Studio Sessions (On Campus)' // Change this to the appropriate event type
+  }
+}));
+
+const on_campus_eli_meadow = Array.from({length: 13}, (_, i) => ({
+  id: `on_campus_eli_meadow${i + 1}`,
+  slug: `on_campus_eli_meadow${i + 1}`,
+  body: '',
+  collection: 'photo-gallery',
+  data: {
+    imgSrc: `public/assets/on_campus_eli_meadow${i + 1}.jpg`,
+    credit: 'Eli Meadow',
+    type: 'Studio Sessions (On Campus)' // Change this to the appropriate event type
+  }
+}));
+
+const off_campus_eli_meadow = Array.from({length: 31}, (_, i) => ({
+  id: `off_campus_eli_meadow${i + 1}`,
+  slug: `off_campus_eli_meadow${i + 1}`,
+  body: '',
+  collection: 'photo-gallery',
+  data: {
+    imgSrc: `public/assets/off_campus_eli_meadow${i + 1}.jpg`,
+    credit: 'Eli Meadow',
+    type: 'Studio Sessions (Off Campus)' // Change this to the appropriate event type
+  }
+}));
+
+const off_campus_sahel = Array.from({length: 12}, (_, i) => ({
+  id: `off_campus_sahel${i + 1}`,
+  slug: `off_campus_sahelw${i + 1}`,
+  body: '',
+  collection: 'photo-gallery',
+  data: {
+    imgSrc: `public/assets/off_campus_sahel${i + 1}.jpg`,
+    credit: 'Sahel @saiguy95',
+    type: 'Studio Sessions (Off Campus)' // Change this to the appropriate event type
+  }
+}));
+
+const off_campus_mac = Array.from({length: 8}, (_, i) => ({
+  id: `off_campus_mac${i + 1}`,
+  slug: `off_campus_mac${i + 1}`,
+  body: '',
+  collection: 'photo-gallery',
+  data: {
+    imgSrc: `public/assets/off_campus_mac${i + 1}.jpg`,
+    credit: 'Mac @m4c.c4m',
+    type: 'Studio Sessions (Off Campus)' // Change this to the appropriate event type
+  }
+}));
+
+const member_socials_sahel = Array.from({length: 5}, (_, i) => ({
+  id: `member_socials_sahel${i + 1}`,
+  slug: `member_socials_sahel${i + 1}`,
+  body: '',
+  collection: 'photo-gallery',
+  data: {
+    imgSrc: `public/assets/member_socials_sahel${i + 1}.jpg`,
+    credit: 'Sahel @saiguy95',
+    type: 'General Member Socials' // Change this to the appropriate event type
   }
 }));
 
@@ -31,7 +91,7 @@ interface Post {
   };
 }
 
-const allPosts: Post[] = [...posts, ...importedImages];
+const allPosts: Post[] = [...posts, ...on_campus_ruth_ann, ...on_campus_eli_meadow, ...off_campus_eli_meadow, ...off_campus_sahel, ...off_campus_mac, ...member_socials_sahel];
 
 const eventTypes = [
   "Open Mics",
@@ -41,7 +101,7 @@ const eventTypes = [
 ];
 const groupedPosts = eventTypes.map((eventType) => ({
   eventType,
-  posts: posts.filter((post) => post.data.type === eventType),
+  posts: allPosts.filter((post) => post.data.type === eventType),
 }));
 ---
 
